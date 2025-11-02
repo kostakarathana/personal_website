@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle initial hash in URL
     if (window.location.hash) {
         const initialSection = window.location.hash.slice(1);
-        const validSections = ['home', 'projects', 'experience', 'education', 'skills'];
+    const validSections = ['home', 'projects', 'experience', 'education', 'coursework', 'tech-stack', 'awards'];
         if (validSections.includes(initialSection)) {
             setTimeout(() => {
                 scrollToSection(initialSection);

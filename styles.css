@@ -63,7 +63,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
-    margin-left: 3rem;
+    margin-left: 0;
 }
 
 .nav-link {
@@ -439,8 +439,10 @@ body {
 
 .social-links {
     display: flex;
-    gap: 0.8rem;
-    margin-top: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin: 2rem 0 1rem;
 }
 
 .social-link {
@@ -457,6 +459,23 @@ body {
     font-size: 1rem;
     transition: all 0.3s ease;
     box-shadow: 0 0 6px rgba(168, 230, 163, 0.2);
+}
+
+.contact-email {
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+}
+
+.contact-email a {
+    color: #c5f0c2;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(125, 211, 252, 0.5);
+    padding-bottom: 2px;
+}
+
+.contact-email a:hover {
+    color: #a5f3fc;
+    border-color: rgba(165, 243, 252, 0.8);
 }
 
 .social-link:hover {
@@ -780,6 +799,127 @@ body {
 .activities strong {
     color: #93c5fd;
     text-shadow: 0 0 2px rgba(147, 197, 253, 0.3);
+}
+
+/* Coursework Section */
+.coursework-subtitle {
+    max-width: 780px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #cbd5e1;
+    font-size: 1rem;
+}
+
+.coursework-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.coursework-card {
+    background: #0f172a;
+    border: 1px solid #475569;
+    border-radius: 6px;
+    padding: 1.75rem;
+    box-shadow: 0 0 12px rgba(71, 85, 105, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.coursework-term-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.coursework-term-header h3 {
+    font-size: 1.3rem;
+    color: #bae6fd;
+    font-weight: 500;
+    text-shadow: 0 0 4px rgba(186, 230, 253, 0.3);
+}
+
+.coursework-status {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(125, 211, 252, 0.4);
+    color: #7dd3fc;
+    background: rgba(125, 211, 252, 0.12);
+    font-weight: 600;
+}
+
+.coursework-status.completed {
+    border-color: rgba(34, 211, 238, 0.4);
+    color: #5eead4;
+    background: rgba(45, 212, 191, 0.15);
+}
+
+.coursework-status.in-progress {
+    border-color: rgba(251, 191, 36, 0.4);
+    color: #facc15;
+    background: rgba(251, 191, 36, 0.1);
+}
+
+.course-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.course-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.course-entry:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.course-code {
+    font-weight: 600;
+    color: #93c5fd;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.course-name {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.course-grade {
+    min-width: 40px;
+    text-align: center;
+    font-weight: 600;
+    color: #bae6fd;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(125, 211, 252, 0.4);
+    background: rgba(125, 211, 252, 0.12);
+    font-size: 0.85rem;
+}
+
+.course-grade::after {
+    content: '';
 }
 
 /* Skills Section */
