@@ -105,8 +105,131 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Simple Search Functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchControls = document.getElementById('searchControls');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const searchCounter = document.getElementById('searchCounter');
+    
+    let currentMatches = [];
+    let currentMatchIndex = -1;
+
+    function performSearch() {
+        const searchTerm = searchInput.value; // Keep original spacing and case
+        
+        // Clear previous highlights
+        clearHighlights();
+        
+        if (searchTerm.length === 0) {
+            searchControls.style.display = 'none';
+            return;
+        }
+
+        // Find all text elements containing the exact search term (case-insensitive)
+        currentMatches = [];
+        const allTextElements = document.querySelectorAll('*:not(script):not(style):not(nav):not(.search-container *)');
+        
+        allTextElements.forEach(element => {
+            // Only check leaf elements (no child elements)
+            if (element.children.length === 0) {
+                const elementText = element.textContent;
+                
+                // Check if the search term exists as-is in the text (case-insensitive)
+                if (elementText.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    currentMatches.push(element);
+                }
+            }
+        });
+
+        if (currentMatches.length > 0) {
+            currentMatchIndex = 0;
+            highlightCurrentMatch();
+            showControls();
+            scrollToCurrentMatch();
+        } else {
+            searchControls.style.display = 'none';
+        }
+    }
+
+    function clearHighlights() {
+        document.querySelectorAll('.search-active').forEach(el => {
+            el.classList.remove('search-active');
+        });
+    }
+
+    function highlightCurrentMatch() {
+        clearHighlights();
+        if (currentMatchIndex >= 0 && currentMatchIndex < currentMatches.length) {
+            currentMatches[currentMatchIndex].classList.add('search-active');
+        }
+    }
+
+    function showControls() {
+        searchControls.style.display = 'flex';
+        updateCounter();
+    }
+
+    function updateCounter() {
+        searchCounter.textContent = `${currentMatchIndex + 1}/${currentMatches.length}`;
+        prevBtn.disabled = currentMatchIndex <= 0;
+        nextBtn.disabled = currentMatchIndex >= currentMatches.length - 1;
+    }
+
+    function scrollToCurrentMatch() {
+        if (currentMatchIndex >= 0 && currentMatchIndex < currentMatches.length) {
+            const element = currentMatches[currentMatchIndex];
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }
+
+    function goToNext() {
+        if (currentMatchIndex < currentMatches.length - 1) {
+            currentMatchIndex++;
+            highlightCurrentMatch();
+            updateCounter();
+            scrollToCurrentMatch();
+        }
+    }
+
+    function goToPrevious() {
+        if (currentMatchIndex > 0) {
+            currentMatchIndex--;
+            highlightCurrentMatch();
+            updateCounter();
+            scrollToCurrentMatch();
+        }
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', performSearch);
+    nextBtn.addEventListener('click', goToNext);
+    prevBtn.addEventListener('click', goToPrevious);
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            searchInput.value = '';
+            clearHighlights();
+            searchControls.style.display = 'none';
+        }
+        
+        if (e.key === 'Enter' && document.activeElement === searchInput && currentMatches.length > 0) {
+            e.preventDefault();
+            if (e.shiftKey) {
+                goToPrevious();
+            } else {
+                goToNext();
+            }
+        }
+    });
+
     // Console message for developers
     console.log('🚀 Kosta\'s Personal Website Loaded Successfully!');
     console.log('💼 Single-page portfolio with smooth scroll navigation');
+    console.log('🔍 Search functionality enabled - try searching for skills!');
     console.log('📫 Contact: kostakarathanasopoulos@gmail.com');
 });
