@@ -242,9 +242,12 @@ body {
 }
 
 .section {
-    min-height: 100vh;
-    padding: 4rem 0;
+    padding: 3rem 0;
     scroll-margin-top: 70px;
+}
+
+#home.section {
+    min-height: 100vh;
 }
 
 /* Section Dividers */
@@ -252,7 +255,7 @@ body {
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, #7dd3fc 20%, #93c5fd 50%, #7dd3fc 80%, transparent);
-    margin: 3rem 0;
+    margin: 2.25rem 0;
     box-shadow: 0 0 10px rgba(125, 211, 252, 0.3);
     position: relative;
 }
@@ -614,7 +617,10 @@ body {
 
 /* Education Section */
 .education-content {
-    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -623,8 +629,36 @@ body {
     padding: 2rem;
     border: 1px solid #475569;
     border-radius: 4px;
-    text-align: center;
     box-shadow: 0 0 15px rgba(71, 85, 105, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.education-text {
+    flex: 1;
+    text-align: left;
+}
+
+.education-image {
+    flex: 0 0 320px;
+    max-width: 320px;
+}
+
+.university-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #7dd3fc;
+    box-shadow: 0 4px 15px rgba(125, 211, 252, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.university-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(125, 211, 252, 0.4);
 }
 
 .education-item h3 {
@@ -769,6 +803,23 @@ body {
     margin-bottom: 2rem;
     text-align: center;
     text-shadow: 0 0 3px rgba(186, 230, 253, 0.3);
+}
+
+.award-category {
+    margin-bottom: 2.5rem;
+}
+
+.award-category:last-of-type {
+    margin-bottom: 0;
+}
+
+.award-category-title {
+    color: #c5f0c2;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 3px rgba(197, 240, 194, 0.3);
 }
 
 .awards-grid {
@@ -930,6 +981,25 @@ body {
     
     .education-details {
         grid-template-columns: 1fr;
+    }
+
+    .education-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .education-text {
+        text-align: center;
+    }
+
+    .education-image {
+        width: 100%;
+        max-width: 260px;
+    }
+
+    .university-image {
+        height: 200px;
     }
     
     .education-item {
