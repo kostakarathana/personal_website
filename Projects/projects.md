@@ -28,5 +28,8 @@ LINKS
 coinclicker link: https://github.com/kostakarathana/CoinClicker 
 sketch link: https://github.com/kostakarathana/chainblock
 scratchoff link: https://github.com/kostakarathana/PD_hackathon
+the price of YOU link: https://chromewebstore.google.com/detail/the-price-of-you/hpolmkpgflkbfbngbhngnigceiofbnei
+myHabitBar link: https://chromewebstore.google.com/detail/myhabitbar/ggnofldipmpjdgadpkobfnjgikgflnol
+
 
 
