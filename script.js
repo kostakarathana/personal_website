@@ -232,4 +232,125 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('💼 Single-page portfolio with smooth scroll navigation');
     console.log('🔍 Search functionality enabled - try searching for skills!');
     console.log('📫 Contact: kostakarathanasopoulos@gmail.com');
+
+    // Hex-encoded name mouse trail effect
+    let lastTrailTime = 0;
+    const trailInterval = 45;
+    const trailPalette = ['#5eead4', '#34d399', '#22d3ee', '#a7f3d0'];
+
+    const nameBits = [
+        '01001011', // K
+        '01101111', // o
+        '01110011', // s
+        '01110100', // t
+        '01100001'  // a
+    ];
+    let bitIndex = 0;
+    let lastMousePosition = null;
+    let lastPerpendicularAngle = 90;
+    let scrollBoost = 0;
+    let lastScrollMetrics = {
+        y: window.scrollY,
+        time: performance.now()
+    };
+    let effectsActive = true;
+
+    const effectsToggle = document.getElementById('effectsToggle');
+
+    function setEffectsActive(isActive) {
+        effectsActive = isActive;
+        document.body.classList.toggle('effects-disabled', !isActive);
+
+        if (effectsToggle) {
+            effectsToggle.textContent = isActive ? 'Remove Special Effects' : 'Restore Special Effects';
+            effectsToggle.setAttribute('aria-pressed', (!isActive).toString());
+        }
+
+        if (!isActive) {
+            scrollBoost = 0;
+            document.querySelectorAll('.binary-trail').forEach(el => el.remove());
+        }
+    }
+
+    if (effectsToggle) {
+        effectsToggle.addEventListener('click', () => {
+            setEffectsActive(!effectsActive);
+        });
+        setEffectsActive(true);
+    }
+
+    window.addEventListener('scroll', () => {
+        const now = performance.now();
+        const deltaY = window.scrollY - lastScrollMetrics.y;
+        const deltaTime = now - lastScrollMetrics.time || 16;
+        const scrollVelocity = Math.abs(deltaY) / Math.max(deltaTime, 1);
+        scrollBoost = Math.min(scrollVelocity * 0.35, 1.6);
+        lastScrollMetrics = {
+            y: window.scrollY,
+            time: now
+        };
+    });
+
+    document.addEventListener('mousemove', event => {
+        const now = performance.now();
+        const currentX = event.clientX;
+        const currentY = event.clientY;
+
+        let angleDeg = lastPerpendicularAngle;
+        let motionScale = 1;
+
+        if (lastMousePosition) {
+            const dx = currentX - lastMousePosition.x;
+            const dy = currentY - lastMousePosition.y;
+            const distance = Math.hypot(dx, dy);
+            const deltaTime = now - lastMousePosition.time || 16;
+
+            if (distance > 0.5) {
+                const perpendicularAngle = Math.atan2(dy, dx) + Math.PI / 2;
+                angleDeg = perpendicularAngle * (180 / Math.PI);
+                lastPerpendicularAngle = angleDeg;
+            }
+
+            const velocity = distance / Math.max(deltaTime, 1);
+            motionScale = 1 + Math.min(velocity * 0.25, 1.2);
+        }
+
+        const newPosition = {
+            x: currentX,
+            y: currentY,
+            time: now
+        };
+
+        if (!effectsActive) {
+            lastMousePosition = newPosition;
+            return;
+        }
+
+        if (now - lastTrailTime < trailInterval) {
+            lastMousePosition = newPosition;
+            return;
+        }
+        lastTrailTime = now;
+        lastMousePosition = newPosition;
+
+        const trail = document.createElement('span');
+        trail.className = 'binary-trail';
+        trail.textContent = nameBits[bitIndex];
+        bitIndex = (bitIndex + 1) % nameBits.length;
+        trail.style.left = `${currentX}px`;
+        trail.style.top = `${currentY}px`;
+        trail.style.color = trailPalette[Math.floor(Math.random() * trailPalette.length)];
+
+        const boostedScale = (motionScale + scrollBoost).toFixed(2);
+        scrollBoost *= 0.85;
+
+        trail.style.setProperty('--trail-rotation', `${angleDeg}deg`);
+        trail.style.setProperty('--trail-scale', boostedScale);
+
+        document.body.appendChild(trail);
+
+        setTimeout(() => {
+            trail.remove();
+        }, 1600);
+    });
 });

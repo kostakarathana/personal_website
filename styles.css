@@ -66,6 +66,38 @@ body {
     margin-left: 0;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.effects-toggle {
+    background: #0f172a;
+    color: #fca5a5;
+    border: 1px solid rgba(252, 165, 165, 0.4);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 8px rgba(252, 165, 165, 0.25);
+}
+
+.effects-toggle:hover {
+    background: rgba(252, 165, 165, 0.1);
+    border-color: rgba(252, 165, 165, 0.65);
+    color: #fecaca;
+    box-shadow: 0 0 12px rgba(252, 165, 165, 0.35);
+}
+
+.effects-toggle:active {
+    transform: translateY(1px);
+}
+
 .nav-link {
     color: #c5f0c2;
     text-decoration: none;
@@ -381,6 +413,7 @@ body {
     z-index: 3;
     filter: brightness(0.95);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: floatDrift 5s ease-in-out infinite;
 }
 
 .collage-photo:hover {
@@ -392,25 +425,46 @@ body {
     top: -25px;
     left: -35px;
     transform: rotate(-6deg);
+    animation: floatDrift 6s ease-in-out infinite;
 }
 
 .collage-photo.photo-2 {
     bottom: -35px;
     right: -25px;
     transform: rotate(7deg);
+    animation-delay: 0.2s;
 }
 
 .collage-photo.photo-3 {
     top: 50%;
     right: -70px;
     transform: translateY(-50%) rotate(-3deg);
+    animation-delay: 0.6s;
 }
 
 .hero-highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
+    animation-delay: 1s;
     margin-bottom: 2rem;
+}
+@keyframes floatDrift {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-6px) scale(1.01);
+    }
+    50% {
+        transform: translateY(0) scale(1);
+    }
+    75% {
+        transform: translateY(6px) scale(0.995);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
 }
 
 .highlight-item {
@@ -483,6 +537,46 @@ body {
     border-color: #7dd3fc;
     box-shadow: 0 0 12px rgba(125, 211, 252, 0.4);
     transform: scale(1.1);
+}
+
+/* Mouse Trail Effect */
+.binary-trail {
+    position: fixed;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.05rem;
+    pointer-events: none;
+    color: #5eead4;
+    opacity: 0.7;
+    animation: fadeTrail 1.6s ease-out forwards;
+    text-shadow: 0 0 6px rgba(94, 234, 212, 0.45);
+    will-change: transform, opacity;
+    --trail-rotation: 0deg;
+    --trail-scale: 1;
+    transform: translate(-50%, -50%) rotate(var(--trail-rotation)) scale(var(--trail-scale));
+}
+
+body.effects-disabled .binary-trail {
+    display: none !important;
+}
+
+body.effects-disabled .collage-photo,
+body.effects-disabled .hero-photo.main-photo {
+    animation: none !important;
+}
+
+@keyframes fadeTrail {
+    0% {
+        transform: translate(-50%, -50%) rotate(var(--trail-rotation)) scale(calc(var(--trail-scale) * 1));
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(var(--trail-rotation)) scale(calc(var(--trail-scale) * 0.7));
+        opacity: 0.45;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(var(--trail-rotation)) scale(calc(var(--trail-scale) * 0.4));
+        opacity: 0;
+    }
 }
 
 /* Projects Section */
@@ -1099,6 +1193,15 @@ body {
 @media screen and (max-width: 768px) {
     .hamburger {
         display: flex;
+    }
+
+    .nav-actions {
+        gap: 0.75rem;
+    }
+
+    .effects-toggle {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.75rem;
     }
     
     .nav-menu {
