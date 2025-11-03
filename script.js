@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        if (hamburger && navMenu && !hamburger.contains(e.target) && !navMenu.contains(e.target)) {
             navMenu.classList.remove('active');
         }
     });
@@ -256,6 +256,262 @@ document.addEventListener('DOMContentLoaded', function() {
     let effectsActive = true;
 
     const effectsToggle = document.getElementById('effectsToggle');
+    const rootElement = document.documentElement;
+    const EGG_IMAGE_PATH = 'photos/easterEgg.png';
+    let easterEggElements = [];
+    let lastChromaticFilter = 'none';
+
+    rootElement.style.setProperty('--theme-filter', 'none');
+
+    function randomFloat(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    function debounce(callback, wait = 220) {
+        let timeoutId;
+        return (...args) => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                callback.apply(null, args);
+            }, wait);
+        };
+    }
+
+    function applyRandomChromaticShift() {
+        let filterValue = lastChromaticFilter;
+        let attempts = 0;
+
+        while (filterValue === lastChromaticFilter && attempts < 8) {
+            const invertChoice = Math.random() < 0.55 ? 1 : 0;
+            const hue = Math.floor(Math.random() * 360);
+            const saturate = randomFloat(1.05, 1.85).toFixed(2);
+            const contrast = randomFloat(invertChoice ? 1.15 : 1.25, invertChoice ? 1.6 : 1.7).toFixed(2);
+            const brightnessRange = invertChoice ? [0.92, 1.28] : [0.78, 1.18];
+            const brightness = randomFloat(brightnessRange[0], brightnessRange[1]).toFixed(2);
+            const sepiaAmount = randomFloat(0, 0.28);
+            const sepia = sepiaAmount > 0.08 ? ` sepia(${sepiaAmount.toFixed(2)})` : '';
+            const grayscaleAmount = randomFloat(0, 0.18);
+            const grayscale = grayscaleAmount > 0.06 ? ` grayscale(${grayscaleAmount.toFixed(2)})` : '';
+
+            const invertSegment = invertChoice ? 'invert(1) ' : '';
+            filterValue = `${invertSegment}hue-rotate(${hue}deg) saturate(${saturate}) contrast(${contrast}) brightness(${brightness})${sepia}${grayscale}`.trim();
+            attempts += 1;
+        }
+
+        lastChromaticFilter = filterValue;
+        rootElement.style.setProperty('--theme-filter', filterValue);
+    }
+
+    function destroyEasterEggs() {
+        easterEggElements.forEach(egg => egg.remove());
+        easterEggElements = [];
+    }
+
+    const EGG_PLACEMENTS = [
+        {
+            selector: '.project-card:nth-of-type(1)',
+            anchor: 'top-left',
+            offset: { x: -14, y: -12 },
+            minWidth: 700,
+            drift: {
+                x: [2.5, 5.5],
+                y: [4.5, 9],
+                rotation: [-6, 6],
+                duration: [7, 10]
+            }
+        },
+        {
+            selector: '.project-card:nth-of-type(4)',
+            anchor: 'bottom-right',
+            offset: { x: -12, y: -18 },
+            minWidth: 860,
+            drift: {
+                x: [2, 5],
+                y: [3.5, 8],
+                rotation: [-8, 5],
+                duration: [6.5, 9.5]
+            }
+        },
+        {
+            selector: '.experience-item:nth-of-type(2)',
+            anchor: 'top-right',
+            offset: { x: -16, y: -6 },
+            minWidth: 680,
+            drift: {
+                x: [2.5, 6],
+                y: [4, 8.5],
+                rotation: [-9, 7],
+                duration: [7, 10]
+            }
+        },
+        {
+            selector: '.coursework-card:nth-of-type(2)',
+            anchor: 'top-right',
+            offset: { x: -14, y: -14 },
+            minWidth: 720,
+            drift: {
+                x: [2.5, 5.5],
+                y: [4.5, 9.5],
+                rotation: [-7, 6],
+                duration: [7.5, 10.5]
+            }
+        },
+        {
+            selector: '.skills-category:nth-of-type(3)',
+            anchor: 'top-left',
+            offset: { x: -16, y: -14 },
+            minWidth: 780,
+            drift: {
+                x: [2, 4.5],
+                y: [3.5, 7.5],
+                rotation: [-5, 5],
+                duration: [6.5, 9]
+            }
+        },
+        {
+            selector: '.skills-category:nth-of-type(1)',
+            anchor: 'bottom-left',
+            offset: { x: -14, y: -10 },
+            maxWidth: 699,
+            drift: {
+                x: [2, 4],
+                y: [3.5, 7],
+                rotation: [-6, 6],
+                duration: [6.5, 9]
+            }
+        },
+        {
+            selector: '.experience-item:nth-of-type(1)',
+            anchor: 'bottom-right',
+            offset: { x: -14, y: -16 },
+            maxWidth: 699,
+            drift: {
+                x: [2, 4.5],
+                y: [3.5, 7],
+                rotation: [-7, 5],
+                duration: [6.5, 9]
+            }
+        },
+        {
+            selector: '.award-item:nth-of-type(2)',
+            anchor: 'top-right',
+            offset: { x: -12, y: -10 },
+            minWidth: 880,
+            drift: {
+                x: [2, 4],
+                y: [3, 7],
+                rotation: [-5, 6],
+                duration: [6.5, 9]
+            }
+        }
+    ];
+
+    function getAnchorPoint(rect, anchor = 'top-left') {
+        switch (anchor) {
+            case 'top-left':
+                return { x: rect.left, y: rect.top };
+            case 'top-right':
+                return { x: rect.right, y: rect.top };
+            case 'bottom-left':
+                return { x: rect.left, y: rect.bottom };
+            case 'bottom-right':
+                return { x: rect.right, y: rect.bottom };
+            case 'middle-right':
+                return { x: rect.right, y: rect.top + rect.height / 2 };
+            case 'middle-left':
+                return { x: rect.left, y: rect.top + rect.height / 2 };
+            case 'bottom-center':
+                return { x: rect.left + rect.width / 2, y: rect.bottom };
+            default:
+                return { x: rect.left, y: rect.top };
+        }
+    }
+
+    function configureEggAnimation(egg, driftConfig) {
+        const drift = driftConfig || {};
+        const driftX = drift.x || [2.5, 6];
+        const driftY = drift.y || [4, 9];
+        const driftRotation = drift.rotation || [-6, 6];
+        const driftDuration = drift.duration || [7, 11];
+
+        egg.style.setProperty('--egg-drift-x', `${randomFloat(driftX[0], driftX[1]).toFixed(2)}px`);
+        egg.style.setProperty('--egg-drift-y', `${randomFloat(driftY[0], driftY[1]).toFixed(2)}px`);
+        egg.style.setProperty('--egg-rotation', `${randomFloat(driftRotation[0], driftRotation[1]).toFixed(2)}deg`);
+        egg.style.setProperty('--egg-drift-duration', `${randomFloat(driftDuration[0], driftDuration[1]).toFixed(2)}s`);
+    }
+
+    function createEasterEgg(config) {
+        const target = document.querySelector(config.selector);
+        if (!target) {
+            return null;
+        }
+
+        const rect = target.getBoundingClientRect();
+        const anchorPoint = getAnchorPoint(rect, config.anchor);
+        if (!anchorPoint) {
+            return null;
+        }
+
+    const offsetX = config.offset?.x || 0;
+    const offsetY = config.offset?.y || 0;
+    const scrollX = window.scrollX || window.pageXOffset;
+    const scrollY = window.scrollY || window.pageYOffset;
+    const left = anchorPoint.x + scrollX + offsetX;
+    const top = anchorPoint.y + scrollY + offsetY;
+
+        const egg = document.createElement('button');
+        egg.type = 'button';
+        egg.className = 'easter-egg';
+        egg.setAttribute('aria-label', 'Trigger a chromatic shift');
+        egg.style.left = `${left}px`;
+        egg.style.top = `${top}px`;
+
+        configureEggAnimation(egg, config.drift);
+
+        const eggImage = document.createElement('img');
+        eggImage.src = EGG_IMAGE_PATH;
+        eggImage.alt = 'Decorative easter egg';
+        egg.appendChild(eggImage);
+
+        egg.addEventListener('click', event => {
+            event.preventDefault();
+            if (!effectsActive) {
+                setEffectsActive(true);
+            }
+            rootElement.removeAttribute('data-theme-mode');
+            applyRandomChromaticShift();
+        });
+
+        return egg;
+    }
+
+    function placeEasterEggs() {
+        destroyEasterEggs();
+        if (!effectsActive) {
+            return;
+        }
+
+        EGG_PLACEMENTS.forEach(config => {
+            if (config.minWidth && window.innerWidth < config.minWidth) {
+                return;
+            }
+            if (config.maxWidth && window.innerWidth > config.maxWidth) {
+                return;
+            }
+
+            const egg = createEasterEgg(config);
+            if (egg) {
+                document.body.appendChild(egg);
+                easterEggElements.push(egg);
+            }
+        });
+    }
+
+    const debouncedRepositionEggs = debounce(() => {
+        if (effectsActive) {
+            placeEasterEggs();
+        }
+    }, 240);
 
     function setEffectsActive(isActive) {
         effectsActive = isActive;
@@ -269,6 +525,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isActive) {
             scrollBoost = 0;
             document.querySelectorAll('.binary-trail').forEach(el => el.remove());
+            lastChromaticFilter = 'none';
+            rootElement.style.setProperty('--theme-filter', 'none');
+            rootElement.setAttribute('data-theme-mode', 'default');
+            destroyEasterEggs();
+        } else {
+            requestAnimationFrame(() => {
+                placeEasterEggs();
+            });
         }
     }
 
@@ -276,8 +540,16 @@ document.addEventListener('DOMContentLoaded', function() {
         effectsToggle.addEventListener('click', () => {
             setEffectsActive(!effectsActive);
         });
-        setEffectsActive(true);
     }
+
+    setEffectsActive(true);
+    window.addEventListener('resize', debouncedRepositionEggs);
+    window.addEventListener('orientationchange', debouncedRepositionEggs);
+    window.addEventListener('load', () => {
+        if (effectsActive) {
+            placeEasterEggs();
+        }
+    });
 
     window.addEventListener('scroll', () => {
         const now = performance.now();
