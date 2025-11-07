@@ -72,6 +72,85 @@ body {
     text-shadow: 0 0 2px rgba(var(--color-text-primary-rgb), 0.2);
 }
 
+/* Scroll Animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-left.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-right.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-animate-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate-scale.animate-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.scroll-animate-bounce {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.scroll-animate-bounce.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Disable animations when effects are off */
+body.effects-disabled .scroll-animate,
+body.effects-disabled .scroll-animate-left,
+body.effects-disabled .scroll-animate-right,
+body.effects-disabled .scroll-animate-scale,
+body.effects-disabled .scroll-animate-bounce {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* Stagger animations for lists */
+.scroll-animate-stagger:nth-child(1) { transition-delay: 0.1s; }
+.scroll-animate-stagger:nth-child(2) { transition-delay: 0.2s; }
+.scroll-animate-stagger:nth-child(3) { transition-delay: 0.3s; }
+.scroll-animate-stagger:nth-child(4) { transition-delay: 0.4s; }
+.scroll-animate-stagger:nth-child(5) { transition-delay: 0.5s; }
+.scroll-animate-stagger:nth-child(6) { transition-delay: 0.6s; }
+
+body.effects-disabled .scroll-animate-stagger {
+    transition-delay: 0s !important;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -137,17 +216,39 @@ body {
     text-transform: uppercase;
     transition: all 0.25s ease;
     box-shadow: 0 0 8px rgba(252, 165, 165, 0.25);
+    animation: subtle-pulse 3s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+    0%, 100% { 
+        box-shadow: 0 0 8px rgba(252, 165, 165, 0.25);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 12px rgba(252, 165, 165, 0.4);
+        transform: scale(1.02);
+    }
 }
 
 .effects-toggle:hover {
     background: rgba(252, 165, 165, 0.1);
     border-color: rgba(252, 165, 165, 0.65);
     color: var(--color-danger-soft);
-    box-shadow: 0 0 12px rgba(252, 165, 165, 0.35);
+    box-shadow: 0 0 15px rgba(252, 165, 165, 0.5);
+    animation: none;
+    transform: scale(1.05);
 }
 
 .effects-toggle:active {
-    transform: translateY(1px);
+    transform: translateY(1px) scale(1.05);
+}
+
+body.effects-disabled .effects-toggle {
+    animation: none !important;
+}
+
+body.effects-disabled .effects-toggle:hover {
+    transform: none !important;
 }
 
 .nav-link {
@@ -362,11 +463,18 @@ body {
     position: relative;
     text-shadow: 0 0 5px rgba(var(--color-accent-tertiary-rgb), 0.3);
     font-family: 'Source Code Pro', monospace;
+    transition: all 0.5s ease;
+}
+
+.section-title:hover {
+    text-shadow: 0 0 10px rgba(var(--color-accent-tertiary-rgb), 0.6);
+    transform: scale(1.02);
 }
 
 .section-title::before {
     content: "# ";
     color: var(--color-accent-secondary);
+    animation: blink 2s infinite;
 }
 
 .section-title::after {
@@ -379,6 +487,30 @@ body {
     height: 2px;
     background: var(--color-accent-primary);
     box-shadow: 0 0 5px rgba(var(--color-accent-primary-rgb), 0.3);
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 150px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+body.effects-disabled .section-title:hover {
+    transform: none !important;
+    text-shadow: 0 0 5px rgba(var(--color-accent-tertiary-rgb), 0.3) !important;
+}
+
+body.effects-disabled .section-title::before {
+    animation: none !important;
+    opacity: 1 !important;
+}
+
+body.effects-disabled .section-title:hover::after {
+    width: 100px !important;
 }
 
 /* Home Section */
@@ -554,8 +686,25 @@ body {
     border-radius: 4px;
     text-decoration: none;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0 0 6px rgba(168, 230, 163, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.social-link:hover::before {
+    left: 100%;
 }
 
 .contact-email {
@@ -578,8 +727,17 @@ body {
 .social-link:hover {
     background: #1e293b;
     border-color: #7dd3fc;
-    box-shadow: 0 0 12px rgba(125, 211, 252, 0.4);
-    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(125, 211, 252, 0.5);
+    transform: scale(1.15) rotate(5deg);
+    color: #bae6fd;
+}
+
+body.effects-disabled .social-link::before {
+    display: none !important;
+}
+
+body.effects-disabled .social-link:hover {
+    transform: none !important;
 }
 
 /* Easter Egg Buttons */
@@ -683,10 +841,16 @@ body.effects-disabled .easter-egg {
 }
 
 /* Projects Section */
+.projects-container {
+    position: relative;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
+    position: relative;
+    min-height: 600px;
 }
 
 .project-card {
@@ -699,6 +863,203 @@ body.effects-disabled .easter-egg {
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+/* Jigsaw Puzzle Mode */
+body:not(.effects-disabled) .projects-grid.puzzle-mode {
+    display: block;
+    position: relative;
+    height: 800px;
+    overflow: hidden;
+}
+
+body:not(.effects-disabled) .projects-grid.puzzle-mode .project-card {
+    position: absolute;
+    width: 300px;
+    height: 220px;
+    padding: 1.5rem;
+    cursor: grab;
+    user-select: none;
+    z-index: 1;
+    clip-path: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body:not(.effects-disabled) .projects-grid.puzzle-mode .project-card.no-puzzle {
+    display: none !important;
+}
+
+body:not(.effects-disabled) .projects-grid.puzzle-mode .project-card:active {
+    cursor: grabbing;
+    z-index: 100;
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 35px rgba(125, 211, 252, 0.4);
+}
+
+body:not(.effects-disabled) .projects-grid.puzzle-mode .project-card.puzzle-placed {
+    cursor: default;
+    z-index: 2;
+}
+
+/* Jigsaw Puzzle Piece Shapes */
+body:not(.effects-disabled) .project-card.puzzle-piece-1 {
+    clip-path: polygon(0% 0%, 70% 0%, 85% 15%, 70% 30%, 100% 30%, 100% 70%, 85% 85%, 70% 70%, 70% 100%, 0% 100%);
+}
+
+body:not(.effects-disabled) .project-card.puzzle-piece-2 {
+    clip-path: polygon(0% 30%, 15% 15%, 30% 30%, 30% 0%, 100% 0%, 100% 70%, 85% 85%, 70% 70%, 70% 100%, 0% 100%);
+}
+
+body:not(.effects-disabled) .project-card.puzzle-piece-3 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 30%, 85% 15%, 70% 30%, 70% 70%, 85% 85%, 70% 100%, 0% 100%, 0% 70%, 15% 85%, 30% 70%);
+}
+
+body:not(.effects-disabled) .project-card.puzzle-piece-4 {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 30% 100%, 30% 70%, 15% 85%, 0% 70%, 0% 30%, 15% 15%, 30% 30%);
+}
+
+body:not(.effects-disabled) .project-card.puzzle-piece-5 {
+    clip-path: polygon(0% 0%, 70% 0%, 85% 15%, 70% 30%, 100% 30%, 100% 100%, 0% 100%, 0% 70%, 15% 85%, 30% 70%, 30% 30%, 15% 15%);
+}
+
+body:not(.effects-disabled) .project-card.puzzle-piece-6 {
+    clip-path: polygon(30% 0%, 100% 0%, 100% 70%, 85% 85%, 70% 70%, 70% 100%, 0% 100%, 0% 30%, 15% 15%, 30% 30%);
+}
+
+/* Initial scattered positions */
+body:not(.effects-disabled) .project-card.puzzle-piece-1:not(.puzzle-placed) { 
+    top: 50px; left: 20px; transform: rotate(-15deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-2:not(.puzzle-placed) { 
+    top: 80px; right: 30px; transform: rotate(12deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-3:not(.puzzle-placed) { 
+    top: 200px; left: 150px; transform: rotate(-8deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-4:not(.puzzle-placed) { 
+    top: 300px; right: 80px; transform: rotate(18deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-5:not(.puzzle-placed) { 
+    top: 450px; left: 60px; transform: rotate(-12deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-6:not(.puzzle-placed) { 
+    top: 500px; right: 120px; transform: rotate(10deg);
+}
+
+/* Final puzzle positions */
+body:not(.effects-disabled) .project-card.puzzle-piece-1.puzzle-placed { 
+    top: 150px; left: 50px; transform: rotate(0deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-2.puzzle-placed { 
+    top: 150px; left: 350px; transform: rotate(0deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-3.puzzle-placed { 
+    top: 150px; left: 650px; transform: rotate(0deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-4.puzzle-placed { 
+    top: 370px; left: 50px; transform: rotate(0deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-5.puzzle-placed { 
+    top: 370px; left: 350px; transform: rotate(0deg);
+}
+body:not(.effects-disabled) .project-card.puzzle-piece-6.puzzle-placed { 
+    top: 370px; left: 650px; transform: rotate(0deg);
+}
+
+/* Puzzle slots */
+.puzzle-slots {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.puzzle-mode .puzzle-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.puzzle-slot {
+    border: 2px dashed var(--accent-color);
+    border-radius: 10px;
+    background: rgba(100, 255, 218, 0.05);
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.puzzle-slot:hover {
+    opacity: 0.6;
+    background: rgba(100, 255, 218, 0.1);
+}
+
+/* Puzzle animations */
+@keyframes puzzleSnap {
+    0% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    50% {
+        transform: scale(0.95) rotate(-2deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Puzzle completion celebration */
+.puzzle-complete .project-card {
+    animation: puzzleCelebration 0.6s ease-out forwards;
+}
+
+@keyframes puzzleCelebration {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.05);
+        filter: brightness(1.2) saturate(1.3);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1.1) saturate(1.1);
+    }
+}
+
+.puzzle-complete::after {
+    content: '🎉 Puzzle Complete! 🎉';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent-color);
+    color: var(--bg-color);
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 2000;
+    animation: celebrationPop 0.8s ease-out forwards;
+}
+
+@keyframes celebrationPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 .project-card:hover {
@@ -758,9 +1119,13 @@ body.effects-disabled .easter-egg {
 .project-button:hover {
     background: #334155;
     color: #bae6fd;
-    box-shadow: 0 0 10px rgba(125, 211, 252, 0.4);
-    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(125, 211, 252, 0.5);
+    transform: translateY(-3px) scale(1.05);
     border-color: #a5f3fc;
+}
+
+body.effects-disabled .project-button:hover {
+    transform: none !important;
 }
 
 .project-tech {
@@ -780,6 +1145,21 @@ body.effects-disabled .easter-egg {
     font-weight: 500;
     font-family: 'Source Code Pro', monospace;
     text-shadow: 0 0 2px rgba(197, 240, 194, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: default;
+}
+
+.tech-tag:hover {
+    background: #374151;
+    border-color: #7dd3fc;
+    color: #bae6fd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(125, 211, 252, 0.2);
+}
+
+body.effects-disabled .tech-tag:hover {
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 .project-achievement {

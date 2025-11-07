@@ -69,15 +69,17 @@
         <section id="home" class="section">
             <div class="container">
                 <div class="home-hero">
-                    <div class="hero-text">
-                        <h1>Hi, I'm Kosta, and I love to build things!</h1>
-                        <h2 class="subtitle">Software Engineer & Applied Mathematics Student</h2>
-                        <p class="hero-description">
+                    <div class="hero-text scroll-animate-left">
+                        <h1 class="scroll-animate scroll-animate-stagger">Hi, I'm Kosta, and I love to build things!</h1>
+                        <h2 class="subtitle scroll-animate scroll-animate-stagger">Software Engineer & Applied Mathematics Student</h2>
+                        <p class="hero-description scroll-animate scroll-animate-stagger">
                             B.S. Applied Mathematics–Computer Science student at Brown University, expected to graduate December 2027. 
                             Originally from Brisbane, Australia, now based in Providence, RI. D1 rowing athlete with experience in 
-                            AI/ML research, mobile development, and blockchain technologies. <strong>Currently seeking software engineering and quantitative finance / computational modeling roles.</strong>
+                            AI/ML research, mobile development, and blockchain technologies. <strong>Currently seeking software engineering and quantitative finance / computational modeling roles.
+                            Right now, I'm working as an undergraduate researcher at Brown University.
+                            </strong>
                         </p>
-                        <div class="social-links">
+                        <div class="social-links scroll-animate scroll-animate-stagger">
                             <a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" class="social-link" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin"></i>
                             </a>
@@ -85,11 +87,11 @@
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
-                        <div class="contact-email">
+                        <div class="contact-email scroll-animate scroll-animate-stagger">
                             <a href="mailto:kostakarathanasopoulos@gmail.com">kostakarathanasopoulos@gmail.com</a>
                         </div>
                     </div>
-                    <div class="hero-collage">
+                    <div class="hero-collage scroll-animate-right">
                         <img src="photos/rowing.png" alt="Kosta Karathanasopoulos rowing" class="hero-photo main-photo">
                         <img src="photos/headshot.jpeg" alt="Headshot of Kosta Karathanasopoulos" class="hero-photo collage-photo photo-1">
                         <img src="photos/hackathon.jpeg" alt="Kosta at hackathon" class="hero-photo collage-photo photo-2">
@@ -105,115 +107,144 @@
         <!-- Projects Section -->
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Side Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-title-section">
-                                <h3>CoinClicker</h3>
-                            </div>
-                            <a href="https://github.com/kostakarathana/CoinClicker" target="_blank" class="project-button">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML/CSS/JS</span>
-                            <span class="tech-tag">Smart Contracts</span>
-                            <span class="tech-tag">Flare Network</span>
-                        </div>
-                        <p>Online gaming lottery-style system. Smart contract backend with Flare network and engaging frontend gaming experience.</p>
-                        <div class="project-achievement">
-                            <i class="fas fa-trophy"></i>
-                            <span>1st Place - $7,500 USD Prize</span>
-                        </div>
+                <h2 class="section-title scroll-animate">Side Projects</h2>
+                <div class="projects-container">
+                    <!-- Puzzle slots (hidden by default) -->
+                    <div class="puzzle-slots">
+                        <div class="puzzle-slot" data-slot-index="0"></div>
+                        <div class="puzzle-slot" data-slot-index="1"></div>
+                        <div class="puzzle-slot" data-slot-index="2"></div>
+                        <div class="puzzle-slot" data-slot-index="3"></div>
+                        <div class="puzzle-slot" data-slot-index="4"></div>
+                        <div class="puzzle-slot" data-slot-index="5"></div>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-title-section">
-                                <h3>Scratchoff</h3>
+                    <!-- Project cards grid -->
+                    <div class="projects-grid">
+                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
+                            <div class="project-header">
+                                <div class="project-title-section">
+                                    <h3>CoinClicker</h3>
+                                </div>
+                                <a href="https://github.com/kostakarathana/CoinClicker" target="_blank" class="project-button">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
                             </div>
-                            <a href="https://github.com/kostakarathana/PD_hackathon" target="_blank" class="project-button">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML/CSS/JS</span>
-                            <span class="tech-tag">Smart Contracts</span>
-                            <span class="tech-tag">Polkadot</span>
-                        </div>
-                        <p>Interactive scratch-off game system with blockchain integration and smart contract management.</p>
-                        <div class="project-achievement">
-                            <i class="fas fa-medal"></i>
-                            <span>2nd Place - $3,000 USD Prize</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-title-section">
-                                <h3>Sketch</h3>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML/CSS/JS</span>
+                                <span class="tech-tag">Smart Contracts</span>
+                                <span class="tech-tag">Flare Network</span>
                             </div>
-                            <a href="https://github.com/kostakarathana/chainblock" target="_blank" class="project-button">
-                                <i class="fab fa-github"></i> View Code
-                            </a>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML/CSS/JS</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Algorand</span>
-                        </div>
-                        <p>Quantitative trading system with event-driven executions and algorithmic trading strategies.</p>
-                        <div class="project-achievement">
-                            <i class="fas fa-star"></i>
-                            <span>Honorable Mention</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-title-section">
-                                <h3>MyHabitBar</h3>
+                            <p>Online gaming lottery-style system. Smart contract backend with Flare network and engaging frontend gaming experience.</p>
+                            <div class="project-achievement">
+                                <i class="fas fa-trophy"></i>
+                                <span>1st Place - $7,500 USD Prize</span>
                             </div>
-                            <a href="https://chromewebstore.google.com/detail/myhabitbar/ggnofldipmpjdgadpkobfnjgikgflnol" target="_blank" class="project-button">
-                                <i class="fab fa-chrome"></i> Chrome Store
-                            </a>
                         </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Chrome Extension</span>
-                            <span class="tech-tag">Local Storage</span>
-                        </div>
-                        <p>Productivity Chrome extension featuring dynamic habit tracking with decaying progress bars that encourage consistent daily engagement through gamified behavioral reinforcement.</p>
-                    </div>
 
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-title-section">
-                                <h3>The Price of YOU!</h3>
+                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
+                            <div class="project-header">
+                                <div class="project-title-section">
+                                    <h3>Scratchoff</h3>
+                                </div>
+                                <a href="https://github.com/kostakarathana/PD_hackathon" target="_blank" class="project-button">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
                             </div>
-                            <a href="https://chromewebstore.google.com/detail/the-price-of-you/hpolmkpgflkbfbngbhngnigceiofbnei" target="_blank" class="project-button">
-                                <i class="fab fa-chrome"></i> Chrome Store
-                            </a>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML/CSS/JS</span>
+                                <span class="tech-tag">Smart Contracts</span>
+                                <span class="tech-tag">Polkadot</span>
+                            </div>
+                            <p>Interactive scratch-off game system with blockchain integration and smart contract management.</p>
+                            <div class="project-achievement">
+                                <i class="fas fa-medal"></i>
+                                <span>2nd Place - $3,000 USD Prize</span>
+                            </div>
                         </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Chrome Extension</span>
-                            <span class="tech-tag">Data Analytics</span>
-                        </div>
-                        <p>Privacy awareness tool that analyzes website telemetry and calculates monetary value of personal data harvesting, providing real-time insights into digital privacy economics.</p>
-                    </div>
 
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Brown Men's Crew Data Analysis</h3>
+                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
+                            <div class="project-header">
+                                <div class="project-title-section">
+                                    <h3>Sketch</h3>
+                                </div>
+                                <a href="https://github.com/kostakarathana/chainblock" target="_blank" class="project-button">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML/CSS/JS</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Algorand</span>
+                            </div>
+                            <p>Quantitative trading system with event-driven executions and algorithmic trading strategies.</p>
+                            <div class="project-achievement">
+                                <i class="fas fa-star"></i>
+                                <span>Honorable Mention</span>
+                            </div>
                         </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">NumPy</span>
+
+                        <div class="project-card scroll-animate-bounce scroll-animate-stagger no-puzzle">
+                            <div class="project-header">
+                                <div class="project-title-section">
+                                    <h3>Wikipedia Random Walk</h3>
+                                </div>
+                                <a href="https://kostakarathana.github.io/Wikipedia_Random_Walk/" target="_blank" class="project-button">
+                                    <i class="fas fa-external-link-alt"></i> View Live
+                                </a>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">MediaWiki API</span>
+                                <span class="tech-tag">Web Audio API</span>
+                            </div>
+                            <p>Continuously explores Wikipedia via a category-aware random walk, building a weighted multigraph that drives a live D3 force layout with hop-based colouring, adaptive edge lengths, and synthesized audio cues for new discoveries.</p>
                         </div>
-                        <p>Analysis of rowing team data and telemetry to support coaching decisions with performance metrics and insights.</p>
+
+                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
+                            <div class="project-header">
+                                <div class="project-title-section">
+                                    <h3>MyHabitBar</h3>
+                                </div>
+                                <a href="https://chromewebstore.google.com/detail/myhabitbar/ggnofldipmpjdgadpkobfnjgikgflnol" target="_blank" class="project-button">
+                                    <i class="fab fa-chrome"></i> Chrome Store
+                                </a>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Chrome Extension</span>
+                                <span class="tech-tag">Local Storage</span>
+                            </div>
+                            <p>Productivity Chrome extension featuring dynamic habit tracking with decaying progress bars that encourage consistent daily engagement through gamified behavioral reinforcement.</p>
+                        </div>
+
+                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
+                            <div class="project-header">
+                                <div class="project-title-section">
+                                    <h3>The Price of YOU!</h3>
+                                </div>
+                                <a href="https://chromewebstore.google.com/detail/the-price-of-you/hpolmkpgflkbfbngbhngnigceiofbnei" target="_blank" class="project-button">
+                                    <i class="fab fa-chrome"></i> Chrome Store
+                                </a>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Chrome Extension</span>
+                                <span class="tech-tag">Data Analytics</span>
+                            </div>
+                            <p>Privacy awareness tool that analyzes website telemetry and calculates monetary value of personal data harvesting, providing real-time insights into digital privacy economics.</p>
+                        </div>
+
+                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
+                            <div class="project-header">
+                                <h3>Brown Men's Crew Data Analysis</h3>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">NumPy</span>
+                            </div>
+                            <p>Analysis of rowing team data and telemetry to support coaching decisions with performance metrics and insights.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -225,9 +256,9 @@
         <!-- Experience Section -->
         <section id="experience" class="section">
             <div class="container">
-                <h2 class="section-title">Experience</h2>
+                <h2 class="section-title scroll-animate">Experience</h2>
                 <div class="experience-timeline">
-                    <div class="experience-item">
+                    <div class="experience-item scroll-animate-left scroll-animate-stagger">
                         <div class="experience-date">Jan 2025 – Present</div>
                         <div class="experience-content">
                             <h3>Research Assistant – AI/ML Robustness</h3>
@@ -240,7 +271,7 @@
                         </div>
                     </div>
 
-                    <div class="experience-item">
+                    <div class="experience-item scroll-animate-left scroll-animate-stagger">
                         <div class="experience-date">Apr 2025 – Sep 2025</div>
                         <div class="experience-content">
                             <h3>Software Engineer Intern</h3>
@@ -253,7 +284,7 @@
                         </div>
                     </div>
 
-                    <div class="experience-item">
+                    <div class="experience-item scroll-animate-left scroll-animate-stagger">
                         <div class="experience-date">Nov 2023 – Sep 2024</div>
                         <div class="experience-content">
                             <h3>Software Engineer Intern (High School)</h3>
@@ -266,7 +297,7 @@
                         </div>
                     </div>
 
-                    <div class="experience-item">
+                    <div class="experience-item scroll-animate-left scroll-animate-stagger">
                         <div class="experience-date">Jan 2019 – Sep 2023</div>
                         <div class="experience-content">
                             <h3>Cadet Sergeant</h3>
@@ -289,7 +320,7 @@
         <!-- Education Section -->
         <section id="education" class="section">
             <div class="container">
-                <h2 class="section-title">Education</h2>
+                <h2 class="section-title scroll-animate">Education</h2>
                 
                 <div class="education-content">
                     <div class="education-item">
@@ -349,7 +380,7 @@
         <!-- Coursework Section -->
         <section id="coursework" class="section">
             <div class="container">
-                <h2 class="section-title">Coursework</h2>
+                <h2 class="section-title scroll-animate">Coursework</h2>
                 <p class="coursework-subtitle">Selected coursework from the Applied Mathematics–Computer Science concentration.</p>
                 <div class="coursework-grid">
                     <div class="coursework-card">
@@ -470,9 +501,9 @@
         <!-- Tech Stack Section -->
         <section id="tech-stack" class="section">
             <div class="container">
-                <h2 class="section-title">Tech Stack</h2>
+                <h2 class="section-title scroll-animate">Tech Stack</h2>
                 <div class="skills-grid">
-                    <div class="skills-category">
+                    <div class="skills-category scroll-animate scroll-animate-stagger">
                         <h3><i class="fas fa-code"></i> Programming Languages</h3>
                         <div class="skills-list">
                             <span class="skill-item">Python</span>
@@ -484,7 +515,7 @@
                         </div>
                     </div>
 
-                    <div class="skills-category">
+                    <div class="skills-category scroll-animate scroll-animate-stagger">
                         <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
                         <div class="skills-list">
                             <span class="skill-item">Git</span>
@@ -497,7 +528,7 @@
                         </div>
                     </div>
 
-                    <div class="skills-category">
+                    <div class="skills-category scroll-animate scroll-animate-stagger">
                         <h3><i class="fas fa-book"></i> Libraries & Frameworks</h3>
                         <div class="skills-list">
                             <span class="skill-item">NumPy</span>
@@ -509,7 +540,7 @@
                         </div>
                     </div>
 
-                    <div class="skills-category">
+                    <div class="skills-category scroll-animate scroll-animate-stagger">
                         <h3><i class="fas fa-server"></i> Systems & Platforms</h3>
                         <div class="skills-list">
                             <span class="skill-item">Linux</span>
@@ -529,7 +560,7 @@
         <!-- Awards & Recognition Section -->
         <section id="awards" class="section">
             <div class="container">
-                <h2 class="section-title">Awards & Recognition</h2>
+                <h2 class="section-title scroll-animate">Awards & Recognition</h2>
 
                 <div class="recognition-section">
                     <div class="award-category">
@@ -617,9 +648,9 @@
                     </div>
                 </div>
 
-                <h3 class="section-subtitle">Certifications & Courses</h3>
+                <h3 class="section-subtitle scroll-animate">Certifications & Courses</h3>
                 <div class="certificates-grid">
-                    <div class="certificate-card">
+                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
                         <div class="certificate-header">
                             <i class="fas fa-certificate"></i>
                             <span class="certificate-type">Certificate of Completion</span>
@@ -634,7 +665,7 @@
                         </div>
                     </div>
 
-                    <div class="certificate-card">
+                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
                         <div class="certificate-header">
                             <i class="fas fa-certificate"></i>
                             <span class="certificate-type">Certificate of Completion</span>
@@ -649,7 +680,7 @@
                         </div>
                     </div>
 
-                    <div class="certificate-card">
+                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
                         <div class="certificate-header">
                             <i class="fas fa-certificate"></i>
                             <span class="certificate-type">Specialization Certificate</span>
@@ -664,7 +695,7 @@
                         </div>
                     </div>
 
-                    <div class="certificate-card">
+                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
                         <div class="certificate-header">
                             <i class="fas fa-certificate"></i>
                             <span class="certificate-type">Course Certificate</span>
@@ -679,7 +710,7 @@
                         </div>
                     </div>
 
-                    <div class="certificate-card">
+                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
                         <div class="certificate-header">
                             <i class="fas fa-certificate"></i>
                             <span class="certificate-type">Programming Certificate</span>
@@ -694,7 +725,7 @@
                         </div>
                     </div>
 
-                    <div class="certificate-card">
+                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
                         <div class="certificate-header">
                             <i class="fas fa-certificate"></i>
                             <span class="certificate-type">Professional Certificate</span>
@@ -709,7 +740,7 @@
                         </div>
                     </div>
 
-                    <div class="certificate-card">
+                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
                         <div class="certificate-header">
                             <i class="fas fa-certificate"></i>
                             <span class="certificate-type">Programming Certificate</span>
@@ -724,7 +755,7 @@
                         </div>
                     </div>
 
-                    <div class="certificate-card">
+                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
                         <div class="certificate-header">
                             <i class="fas fa-certificate"></i>
                             <span class="certificate-type">Course Certificate</span>

@@ -103,7 +103,27 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
         }
+        
+        // Handle scroll animations
+        handleScrollAnimations();
     });
+
+    // Scroll Animation Handler
+    function handleScrollAnimations() {
+        const scrollElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale, .scroll-animate-bounce');
+        
+        scrollElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('animate-in');
+            }
+        });
+    }
+
+    // Initial check for elements already in view
+    handleScrollAnimations();
 
     // Simple Search Functionality
     const searchInput = document.getElementById('searchInput');
@@ -625,4 +645,213 @@ document.addEventListener('DOMContentLoaded', function() {
             trail.remove();
         }, 1600);
     });
+
+    // Jigsaw Puzzle Functionality
+    let draggedPiece = null;
+    let dragOffset = { x: 0, y: 0 };
+    let puzzleActive = false;
+    let activePuzzleCards = [];
+
+    function initializePuzzle() {
+        const projectsContainer = document.querySelector('.projects-container');
+        const projectsGrid = document.querySelector('.projects-grid');
+        const puzzleCandidates = Array.from(document.querySelectorAll('.project-card')).filter(card => !card.classList.contains('no-puzzle'));
+        const puzzleSlots = document.querySelectorAll('.puzzle-slot');
+        const slotCount = puzzleSlots.length || puzzleCandidates.length;
+        const projectCards = puzzleCandidates.slice(0, slotCount);
+        
+        if (!projectsContainer || !projectsGrid || !projectCards.length) return;
+
+        // Only activate puzzle if effects are enabled
+        const effectsToggle = document.getElementById('effects-toggle');
+        if (!effectsToggle || !effectsToggle.checked) return;
+
+        puzzleActive = true;
+        activePuzzleCards = projectCards;
+        projectsContainer.classList.add('puzzle-mode');
+        if (projectsGrid) {
+            projectsGrid.classList.add('puzzle-mode');
+        }
+
+        projectCards.forEach((card, index) => {
+            card.classList.add('puzzle-piece');
+            card.classList.add(`puzzle-piece-${index + 1}`);
+            card.setAttribute('data-piece-index', index);
+            card.setAttribute('data-placed', 'false');
+            
+            // Set initial scattered positions using CSS classes (they're already defined)
+            // Remove any inline transforms first
+            card.style.transform = '';
+            card.style.position = 'absolute';
+            
+            // Add drag event listeners
+            card.addEventListener('mousedown', startDrag);
+            card.addEventListener('touchstart', startDrag, { passive: false });
+        });
+
+        // Add global event listeners for dragging
+        document.addEventListener('mousemove', handleDrag);
+        document.addEventListener('mouseup', endDrag);
+        document.addEventListener('touchmove', handleDrag, { passive: false });
+        document.addEventListener('touchend', endDrag);
+    }
+
+    function startDrag(e) {
+        if (!puzzleActive) return;
+        
+        e.preventDefault();
+        draggedPiece = e.currentTarget;
+        draggedPiece.classList.add('dragging');
+        
+        const rect = draggedPiece.getBoundingClientRect();
+        const clientX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+        const clientY = e.type === 'mousedown' ? e.clientY : e.touches[0].clientY;
+        
+        dragOffset.x = clientX - rect.left;
+        dragOffset.y = clientY - rect.top;
+        
+        // Bring to front
+        draggedPiece.style.zIndex = '1000';
+    }
+
+    function handleDrag(e) {
+        if (!draggedPiece || !puzzleActive) return;
+        
+        e.preventDefault();
+        const clientX = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+        const clientY = e.type === 'mousemove' ? e.clientY : e.touches[0].clientY;
+        
+        const x = clientX - dragOffset.x;
+        const y = clientY - dragOffset.y;
+        
+        draggedPiece.style.left = `${x}px`;
+        draggedPiece.style.top = `${y}px`;
+        draggedPiece.style.transform = 'none';
+    }
+
+    function endDrag(e) {
+        if (!draggedPiece || !puzzleActive) return;
+        
+        const piece = draggedPiece;
+        const pieceIndex = parseInt(piece.getAttribute('data-piece-index'));
+        
+        // Check if piece is close to its correct position
+        const correctSlot = document.querySelector(`.puzzle-slot[data-slot-index="${pieceIndex}"]`);
+        if (correctSlot && isNearSlot(piece, correctSlot)) {
+            snapToSlot(piece, correctSlot);
+        }
+        
+        piece.classList.remove('dragging');
+        piece.style.zIndex = '';
+        draggedPiece = null;
+        
+        // Check if puzzle is complete
+        checkPuzzleComplete();
+    }
+
+    function isNearSlot(piece, slot) {
+        const pieceRect = piece.getBoundingClientRect();
+        const slotRect = slot.getBoundingClientRect();
+        
+        const centerDistance = Math.sqrt(
+            Math.pow(pieceRect.left + pieceRect.width / 2 - slotRect.left - slotRect.width / 2, 2) +
+            Math.pow(pieceRect.top + pieceRect.height / 2 - slotRect.top - slotRect.height / 2, 2)
+        );
+        
+        return centerDistance < 80; // Snap distance
+    }
+
+    function snapToSlot(piece, _slot) {
+        // Add the puzzle-placed class which positions the piece correctly via CSS
+        piece.setAttribute('data-placed', 'true');
+        piece.classList.add('puzzle-placed');
+        
+        // Clear any manual positioning
+        piece.style.left = '';
+        piece.style.top = '';
+        piece.style.transform = '';
+        
+        // Add satisfying snap effect
+        piece.style.animation = 'puzzleSnap 0.3s ease-out';
+        setTimeout(() => {
+            piece.style.animation = '';
+        }, 300);
+    }
+
+    function checkPuzzleComplete() {
+        if (!activePuzzleCards.length) return;
+
+        const allPlaced = activePuzzleCards.every(card => card.getAttribute('data-placed') === 'true');
+
+        if (allPlaced) {
+            // Puzzle complete! Add celebration effect
+            setTimeout(() => {
+                const projectsContainer = document.querySelector('.projects-container');
+                if (projectsContainer) {
+                    projectsContainer.classList.add('puzzle-complete');
+                }
+                
+                // Reset puzzle after celebration
+                setTimeout(() => {
+                    resetPuzzle();
+                }, 2000);
+            }, 500);
+        }
+    }
+
+    function resetPuzzle() {
+        const projectsContainer = document.querySelector('.projects-container');
+        const projectsGrid = document.querySelector('.projects-grid');
+        const projectCards = activePuzzleCards.length ? activePuzzleCards : Array.from(document.querySelectorAll('.project-card')).filter(card => !card.classList.contains('no-puzzle'));
+        
+        if (projectsContainer) {
+            projectsContainer.classList.remove('puzzle-mode', 'puzzle-complete');
+        }
+        if (projectsGrid) projectsGrid.classList.remove('puzzle-mode');
+        
+        projectCards.forEach((card, index) => {
+            // Remove puzzle classes
+            card.classList.remove('puzzle-piece', 'placed', 'dragging', `puzzle-piece-${index + 1}`, 'puzzle-placed');
+            card.setAttribute('data-placed', 'false');
+            
+            // Reset styles
+            card.style.left = '';
+            card.style.top = '';
+            card.style.transform = '';
+            card.style.zIndex = '';
+            card.style.animation = '';
+            card.style.position = '';
+            
+            // Remove event listeners
+            card.removeEventListener('mousedown', startDrag);
+            card.removeEventListener('touchstart', startDrag);
+        });
+        
+        // Remove global event listeners
+        document.removeEventListener('mousemove', handleDrag);
+        document.removeEventListener('mouseup', endDrag);
+        document.removeEventListener('touchmove', handleDrag);
+        document.removeEventListener('touchend', endDrag);
+        
+        puzzleActive = false;
+        activePuzzleCards = [];
+    }
+
+    // Initialize puzzle when effects are toggled on
+    const puzzleEffectsToggle = document.getElementById('effects-toggle');
+    if (puzzleEffectsToggle) {
+        puzzleEffectsToggle.addEventListener('change', function() {
+            if (this.checked) {
+                // Delay puzzle initialization to let animations settle
+                setTimeout(initializePuzzle, 1000);
+            } else {
+                resetPuzzle();
+            }
+        });
+    }
+
+    // Initialize puzzle if effects are already enabled on page load
+    if (puzzleEffectsToggle && puzzleEffectsToggle.checked) {
+        setTimeout(initializePuzzle, 1500);
+    }
 });
