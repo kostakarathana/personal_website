@@ -3,310 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kosta Karathanasopoulos - Software Engineer</title>
+    <title>Kosta Karathanasopoulos</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link" data-tab="home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link" data-tab="projects">Side Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link" data-tab="experience">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#education" class="nav-link" data-tab="education">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#coursework" class="nav-link" data-tab="coursework">Coursework</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tech-stack" class="nav-link" data-tab="tech-stack">Tech Stack</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#awards" class="nav-link" data-tab="awards">Awards</a>
-                </li>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">KK</a>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#awards">Awards</a></li>
             </ul>
-            <div class="nav-actions">
-                <button class="effects-toggle" id="effectsToggle" type="button">Remove Special Effects</button>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <div class="container">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" placeholder="search by skill/keyword..." autocomplete="off">
-                <div class="search-controls" id="searchControls" style="display: none;">
-                    <button class="search-nav-btn" id="prevBtn" title="Previous match">
-                        <i class="fas fa-chevron-up"></i>
-                    </button>
-                    <span class="search-counter" id="searchCounter">0/0</span>
-                    <button class="search-nav-btn" id="nextBtn" title="Next match">
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <main class="main-content">
-        <!-- Home Section -->
-        <section id="home" class="section">
+    <main>
+        <!-- Hero -->
+        <section class="hero">
             <div class="container">
-                <div class="home-hero">
-                    <div class="hero-text scroll-animate-left">
-                        <h1 class="scroll-animate scroll-animate-stagger">Hi, I'm Kosta, and I love to build things!</h1>
-                        <h2 class="subtitle scroll-animate scroll-animate-stagger">Software Engineer & Applied Mathematics Student</h2>
-                        <p class="hero-description scroll-animate scroll-animate-stagger">
-                            B.S. Applied Mathematics–Computer Science student at Brown University, expected to graduate December 2027. 
-                            Originally from Brisbane, Australia, now based in Providence, RI. D1 rowing athlete with experience in 
-                            AI/ML research, mobile development, and blockchain technologies. <strong>Currently seeking software engineering and quantitative finance / computational modeling roles.
-                            Right now, I'm working as an undergraduate researcher at Brown University.
-                            </strong>
-                        </p>
-                        <div class="social-links scroll-animate scroll-animate-stagger">
-                            <a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" class="social-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/kostakarathana" class="social-link" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                        <div class="contact-email scroll-animate scroll-animate-stagger">
-                            <a href="mailto:kostakarathanasopoulos@gmail.com">kostakarathanasopoulos@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="hero-collage scroll-animate-right">
-                        <img src="photos/rowing.png" alt="Kosta Karathanasopoulos rowing" class="hero-photo main-photo">
-                        <img src="photos/headshot.jpeg" alt="Headshot of Kosta Karathanasopoulos" class="hero-photo collage-photo photo-1">
-                        <img src="photos/hackathon.jpeg" alt="Kosta at hackathon" class="hero-photo collage-photo photo-2">
-                        <img src="photos/hackathon2.jpeg" alt="Hackathon presentation" class="hero-photo collage-photo photo-3">
-                    </div>
+                <h1>Kosta Karathanasopoulos</h1>
+                <p class="hero-sub">Software Engineer & Applied Mathematics @ Brown University</p>
+                <p class="hero-desc">
+                    I build things across AI/ML, full-stack web, prediction markets, and computer vision.
+                    Currently an undergraduate researcher at Brown's SWRL Lab and seeking SWE and quantitative roles.
+                </p>
+                <div class="hero-links">
+                    <a href="mailto:kostakarathanasopoulos@gmail.com">Email</a>
+                    <a href="https://github.com/kostakarathana" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
         </section>
 
-        <!-- Section Divider -->
-        <div class="section-divider"></div>
-
-        <!-- Projects Section -->
+        <!-- Projects -->
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title scroll-animate">Side Projects</h2>
-                <div class="projects-container">
-                    <!-- Puzzle slots (hidden by default) -->
-                    <div class="puzzle-slots">
-                        <div class="puzzle-slot" data-slot-index="0"></div>
-                        <div class="puzzle-slot" data-slot-index="1"></div>
-                        <div class="puzzle-slot" data-slot-index="2"></div>
-                        <div class="puzzle-slot" data-slot-index="3"></div>
-                        <div class="puzzle-slot" data-slot-index="4"></div>
-                        <div class="puzzle-slot" data-slot-index="5"></div>
-                    </div>
-                    <!-- Project cards grid -->
-                    <div class="projects-grid">
-                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
-                            <div class="project-header">
-                                <div class="project-title-section">
-                                    <h3>CoinClicker</h3>
-                                </div>
-                                <a href="https://github.com/kostakarathana/CoinClicker" target="_blank" class="project-button">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML/CSS/JS</span>
-                                <span class="tech-tag">Smart Contracts</span>
-                                <span class="tech-tag">Flare Network</span>
-                            </div>
-                            <p>Online gaming lottery-style system. Smart contract backend with Flare network and engaging frontend gaming experience.</p>
-                            <div class="project-achievement">
-                                <i class="fas fa-trophy"></i>
-                                <span>1st Place - $7,500 USD Prize</span>
-                            </div>
-                        </div>
+                <h2>Selected Projects</h2>
+                <div class="projects-grid">
 
-                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
-                            <div class="project-header">
-                                <div class="project-title-section">
-                                    <h3>Scratchoff</h3>
-                                </div>
-                                <a href="https://github.com/kostakarathana/PD_hackathon" target="_blank" class="project-button">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML/CSS/JS</span>
-                                <span class="tech-tag">Smart Contracts</span>
-                                <span class="tech-tag">Polkadot</span>
-                            </div>
-                            <p>Interactive scratch-off game system with blockchain integration and smart contract management.</p>
-                            <div class="project-achievement">
-                                <i class="fas fa-medal"></i>
-                                <span>2nd Place - $3,000 USD Prize</span>
-                            </div>
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>PresidentialBrief</h3>
                         </div>
+                        <p>Full-stack SaaS that delivers personalized AI-generated weekly news briefs via email. User auth, scheduled cron jobs, and OpenAI-powered content generation.</p>
+                        <div class="tags">
+                            <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>OpenAI</span><span>Prisma</span>
+                        </div>
+                    </article>
 
-                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
-                            <div class="project-header">
-                                <div class="project-title-section">
-                                    <h3>Sketch</h3>
-                                </div>
-                                <a href="https://github.com/kostakarathana/chainblock" target="_blank" class="project-button">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML/CSS/JS</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Algorand</span>
-                            </div>
-                            <p>Quantitative trading system with event-driven executions and algorithmic trading strategies.</p>
-                            <div class="project-achievement">
-                                <i class="fas fa-star"></i>
-                                <span>Honorable Mention</span>
-                            </div>
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Spike</h3>
                         </div>
+                        <p>Prediction market platform with real-time dashboards, leaderboards, clubs, and admin panels. Complex multi-page React frontend backed by a FastAPI service.</p>
+                        <div class="tags">
+                            <span>Next.js</span><span>React 19</span><span>FastAPI</span><span>PostgreSQL</span><span>Tailwind</span>
+                        </div>
+                    </article>
 
-                        <div class="project-card scroll-animate-bounce scroll-animate-stagger no-puzzle">
-                            <div class="project-header">
-                                <div class="project-title-section">
-                                    <h3>Wikipedia Random Walk</h3>
-                                </div>
-                                <a href="https://kostakarathana.github.io/Wikipedia_Random_Walk/" target="_blank" class="project-button">
-                                    <i class="fas fa-external-link-alt"></i> View Live
-                                </a>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">D3.js</span>
-                                <span class="tech-tag">MediaWiki API</span>
-                                <span class="tech-tag">Web Audio API</span>
-                            </div>
-                            <p>Continuously explores Wikipedia via a category-aware random walk, building a weighted multigraph that drives a live D3 force layout with hop-based colouring, adaptive edge lengths, and synthesized audio cues for new discoveries.</p>
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>RoadsAndSearch</h3>
+                            <a href="https://github.com/kostakarathana/RoadsAndSearch" target="_blank" rel="noopener">GitHub &rarr;</a>
                         </div>
+                        <p>Interactive visualizer for 6 pathfinding algorithms on a procedurally generated 1000x1000 town. BFS, DFS, Dijkstra, A*, Greedy Best-First, and Bidirectional search.</p>
+                        <div class="tags">
+                            <span>JavaScript</span><span>HTML5 Canvas</span><span>Algorithms</span>
+                        </div>
+                    </article>
 
-                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
-                            <div class="project-header">
-                                <div class="project-title-section">
-                                    <h3>MyHabitBar</h3>
-                                </div>
-                                <a href="https://chromewebstore.google.com/detail/myhabitbar/ggnofldipmpjdgadpkobfnjgikgflnol" target="_blank" class="project-button">
-                                    <i class="fab fa-chrome"></i> Chrome Store
-                                </a>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Chrome Extension</span>
-                                <span class="tech-tag">Local Storage</span>
-                            </div>
-                            <p>Productivity Chrome extension featuring dynamic habit tracking with decaying progress bars that encourage consistent daily engagement through gamified behavioral reinforcement.</p>
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>PartSelect Chat Agent</h3>
+                            <a href="https://github.com/kostakarathana/INSTALILY-onsite-case-study" target="_blank" rel="noopener">GitHub &rarr;</a>
                         </div>
+                        <p>AI chat agent for appliance parts with real scraped product data, compatibility checks, installation guides, and intent classification via Deepseek LLM.</p>
+                        <div class="tags">
+                            <span>React</span><span>Node.js</span><span>Deepseek</span><span>BeautifulSoup</span>
+                        </div>
+                    </article>
 
-                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
-                            <div class="project-header">
-                                <div class="project-title-section">
-                                    <h3>The Price of YOU!</h3>
-                                </div>
-                                <a href="https://chromewebstore.google.com/detail/the-price-of-you/hpolmkpgflkbfbngbhngnigceiofbnei" target="_blank" class="project-button">
-                                    <i class="fab fa-chrome"></i> Chrome Store
-                                </a>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Chrome Extension</span>
-                                <span class="tech-tag">Data Analytics</span>
-                            </div>
-                            <p>Privacy awareness tool that analyzes website telemetry and calculates monetary value of personal data harvesting, providing real-time insights into digital privacy economics.</p>
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Habit Forest</h3>
                         </div>
+                        <p>Visual habit tracker where habits grow as L-system trees when maintained and decay through 50 stages when neglected. Procedural generation on canvas.</p>
+                        <div class="tags">
+                            <span>Next.js</span><span>TypeScript</span><span>Zustand</span><span>Canvas API</span><span>Framer Motion</span>
+                        </div>
+                    </article>
 
-                        <div class="project-card scroll-animate-bounce scroll-animate-stagger">
-                            <div class="project-header">
-                                <h3>Brown Men's Crew Data Analysis</h3>
-                            </div>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Pandas</span>
-                                <span class="tech-tag">NumPy</span>
-                            </div>
-                            <p>Analysis of rowing team data and telemetry to support coaching decisions with performance metrics and insights.</p>
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>YouTube Focus Mode</h3>
                         </div>
-                    </div>
+                        <p>Chrome extension that intelligently hides entertainment content on YouTube while preserving educational videos. Floating controls, keyboard shortcuts, and on-page stats.</p>
+                        <div class="tags">
+                            <span>JavaScript</span><span>Chrome Manifest V3</span><span>Content Scripts</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Voice AI Assistant</h3>
+                            <a href="https://github.com/kostakarathana/cf_ai_voice_LLM" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Voice-to-text AI assistant running on Cloudflare Workers with Whisper STT and Llama 3.3. Durable Objects for persistent conversation memory.</p>
+                        <div class="tags">
+                            <span>TypeScript</span><span>Cloudflare Workers</span><span>Whisper</span><span>Llama 3.3</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>TikTok View Predictor</h3>
+                        </div>
+                        <p>Novel power-law decay model for predicting TikTok video views. Accounts for frontloaded distribution, creator momentum, and viral signals. Real-time WebSocket logging.</p>
+                        <div class="tags">
+                            <span>FastAPI</span><span>React</span><span>Playwright</span><span>Gemini Vision</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Go AI &mdash; Parallel MCTS</h3>
+                        </div>
+                        <p>Go game AI achieving 88.3% win rate using Root Parallel MCTS with 8 workers, Zobrist hashing, opening books, and territory-aware heuristics.</p>
+                        <div class="tags">
+                            <span>Python</span><span>PyTorch</span><span>Multiprocessing</span><span>MCTS</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Recruit Analysis Tool</h3>
+                        </div>
+                        <p>Rowing recruit scouting platform for Brown Athletics. Coaches can discover, filter, and track recruits with detailed profiles and batch web scraping.</p>
+                        <div class="tags">
+                            <span>React</span><span>Vite</span><span>React Router</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Polymarket Tools</h3>
+                        </div>
+                        <p>Python library for Polymarket prediction markets. Arbitrage detection, orderbook analysis, position tracking, and market discovery.</p>
+                        <div class="tags">
+                            <span>Python</span><span>httpx</span><span>Pandas</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>CoinClicker</h3>
+                            <a href="https://github.com/kostakarathana/CoinClicker" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Smart contract gaming lottery on Flare Network. Won 1st place ($7,500) at the Easy A x Flare x XRPL Hackathon.</p>
+                        <div class="tags">
+                            <span>Solidity</span><span>Flare Network</span><span>JavaScript</span>
+                        </div>
+                        <span class="project-award">1st Place &mdash; $7,500</span>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Scratchoff</h3>
+                            <a href="https://github.com/kostakarathana/PD_hackathon" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Interactive blockchain scratch-off game with smart contract management on Polkadot. Won 2nd place ($3,000) at the Harvard x Polkadot Hackathon.</p>
+                        <div class="tags">
+                            <span>JavaScript</span><span>Smart Contracts</span><span>Polkadot</span>
+                        </div>
+                        <span class="project-award">2nd Place &mdash; $3,000</span>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Sketch</h3>
+                            <a href="https://github.com/kostakarathana/chainblock" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Quantitative trading system with event-driven executions and algorithmic trading strategies on Algorand.</p>
+                        <div class="tags">
+                            <span>Python</span><span>Algorand</span><span>Smart Contracts</span>
+                        </div>
+                        <span class="project-award">Honorable Mention</span>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Goldman ELS Calculator</h3>
+                            <a href="https://github.com/kostakarathana/Goldman_ELS" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Financial calculator for mutual fund investments using the CAPM model. Calculates future value based on historical returns, beta, and risk-free rates from the FRED API.</p>
+                        <div class="tags">
+                            <span>React</span><span>Node.js</span><span>Express</span><span>CAPM</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Markov Decision Simulator</h3>
+                            <a href="https://github.com/kostakarathana/Markov_Decision_Simulator" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Browser-based MDP solver and simulator. Draw states and actions, solve via Value Iteration, and simulate policy execution. Fully standalone, no server required.</p>
+                        <div class="tags">
+                            <span>JavaScript</span><span>HTML5 Canvas</span><span>Algorithms</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Wikipedia Random Walk</h3>
+                            <a href="https://github.com/kostakarathana/Wikipedia_Random_Walk" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Explores Wikipedia via a category-aware random walk, building a weighted multigraph rendered as a live D3 force layout with hop-based colouring and audio cues.</p>
+                        <div class="tags">
+                            <span>D3.js</span><span>MediaWiki API</span><span>Web Audio API</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Tetris</h3>
+                            <a href="https://github.com/kostakarathana/Tetris10minbuild" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Feature-complete Tetris with procedural sound generation, ghost piece preview, hold functionality, and progressive difficulty at smooth 60 FPS.</p>
+                        <div class="tags">
+                            <span>Python</span><span>Pygame</span><span>NumPy</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>YOLOV8 Rowing Analysis</h3>
+                            <a href="https://github.com/kostakarathana/YOLOV8-rowing" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Real-time pose estimation overlay for rowing videos using YOLOv8. Frame-by-frame body angle analysis with interactive controls and confidence thresholds.</p>
+                        <div class="tags">
+                            <span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>NumPy</span>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <div class="project-top">
+                            <h3>Rowing Telemetry Tools</h3>
+                            <a href="https://github.com/kostakarathana/rowing-tools" target="_blank" rel="noopener">GitHub &rarr;</a>
+                        </div>
+                        <p>Animated stats overlay from rowing telemetry data and statsheet generator. Imports CSV data and renders video overlays via FFmpeg.</p>
+                        <div class="tags">
+                            <span>Python</span><span>Matplotlib</span><span>FFmpeg</span><span>NumPy</span>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
 
-        <!-- Section Divider -->
-        <div class="section-divider"></div>
-
-        <!-- Experience Section -->
+        <!-- Experience -->
         <section id="experience" class="section">
             <div class="container">
-                <h2 class="section-title scroll-animate">Experience</h2>
-                <div class="experience-timeline">
-                    <div class="experience-item scroll-animate-left scroll-animate-stagger">
-                        <div class="experience-date">Jan 2025 – Present</div>
-                        <div class="experience-content">
-                            <h3>Research Assistant – AI/ML Robustness</h3>
-                            <h4>Brown University, SWRL Lab • Providence, RI</h4>
-                            <ul>
-                                <li>Designed red-teaming strategies to expose LLM vulnerabilities and tested adversarial prompts across multiple models</li>
-                                <li>Quantified model brittleness and failure cases using statistical benchmarks and Monte Carlo simulations</li>
-                                <li>Contributed to safety reports used by educators and policy stakeholders</li>
-                            </ul>
+                <h2>Experience</h2>
+                <div class="htl">
+                    <!-- Bars area -->
+                    <div class="htl-chart">
+                        <div class="htl-row" data-exp="0">
+                            <span class="htl-label">Spike</span>
+                            <div class="htl-track"><div class="htl-bar" data-start="2025-01" data-end="2026-04"></div></div>
+                        </div>
+                        <div class="htl-row" data-exp="1">
+                            <span class="htl-label">Goldman Sachs ELS</span>
+                            <div class="htl-track"><div class="htl-bar" data-start="2026-01" data-end="2026-04"></div></div>
+                        </div>
+                        <div class="htl-row" data-exp="2">
+                            <span class="htl-label">Brown SWRL/LUNAR</span>
+                            <div class="htl-track"><div class="htl-bar" data-start="2025-01" data-end="2025-12"></div></div>
+                        </div>
+                        <div class="htl-row" data-exp="3">
+                            <span class="htl-label">Hats by the Hundred</span>
+                            <div class="htl-track"><div class="htl-bar" data-start="2023-11" data-end="2024-09"></div></div>
                         </div>
                     </div>
-
-                    <div class="experience-item scroll-animate-left scroll-animate-stagger">
-                        <div class="experience-date">Apr 2025 – Sep 2025</div>
-                        <div class="experience-content">
-                            <h3>Software Engineer Intern</h3>
-                            <h4>Embrd Mental Health Startup • New York City</h4>
+                    <!-- Time axis -->
+                    <div class="htl-axis" id="htl-axis"></div>
+                    <!-- Detail panel (shown on click) -->
+                    <div class="htl-detail" id="htl-detail">
+                        <div class="htl-detail-inner" data-detail="0">
+                            <div class="htl-detail-head">
+                                <h3>Founding Engineer / Co-founder</h3>
+                                <span>Spike &bull; New York City &bull; Jan 2025 &ndash; Present</span>
+                            </div>
                             <ul>
-                                <li>Led development of production-grade mobile features using React Native and Firebase</li>
-                                <li>Instrumented telemetry pipelines to support future user-behavior ML models</li>
-                                <li>Maintained CI/CD pipelines and pull request workflows in GitHub Actions</li>
+                                <li>Architecting the core React frontend and user experience. Secured $150,000 in angel funding.</li>
+                                <li>Accelerated product development by adopting AI-native workflows (Cursor, Copilot) to rapidly prototype and iterate on complex UI states</li>
+                                <li>Optimizing technical architecture to support high-throughput interactions between users and autonomous backend systems</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="experience-item scroll-animate-left scroll-animate-stagger">
-                        <div class="experience-date">Nov 2023 – Sep 2024</div>
-                        <div class="experience-content">
-                            <h3>Software Engineer Intern (High School)</h3>
-                            <h4>Hats by the Hundred (E-Commerce) • Brisbane, Australia</h4>
+                        <div class="htl-detail-inner" data-detail="1">
+                            <div class="htl-detail-head">
+                                <h3>Goldman Sachs Emerging Leaders</h3>
+                                <span>Goldman Sachs &bull; Jan 2026 &ndash; Apr 2026</span>
+                            </div>
                             <ul>
-                                <li>Built AI chat-bot using internal sales and support data, generating $80K ARR (5% of total revenue)</li>
-                                <li>Queried Shopify data via analytics tooling to identify high-conversion patterns</li>
-                                <li>Implemented customer support automation and data-driven sales optimization</li>
+                                <li>Creating a mutual fund analysis tool with a React/TS frontend coupled with a FastAPI/Python backend</li>
+                                <li>Leveraging OpenAI API to provide qualitative insights into users' investment strategy</li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="experience-item scroll-animate-left scroll-animate-stagger">
-                        <div class="experience-date">Jan 2019 – Sep 2023</div>
-                        <div class="experience-content">
-                            <h3>Cadet Sergeant</h3>
-                            <h4>Australian Army Cadets • Brisbane, Australia</h4>
+                        <div class="htl-detail-inner" data-detail="2">
+                            <div class="htl-detail-head">
+                                <h3>Research Assistant, AI/ML Robustness</h3>
+                                <span>Brown University, SWRL/LUNAR &bull; Providence, RI &bull; Jan 2025 &ndash; Dec 2025</span>
+                            </div>
                             <ul>
-                                <li>Led and mentored junior cadets in military discipline, leadership principles, and tactical exercises</li>
-                                <li>Coordinated field training exercises, ceremonial events, and community service initiatives</li>
-                                <li>Developed strong leadership, teamwork, and communication skills through progressive responsibility roles</li>
-                                <li>Represented unit at regional competitions and inter-unit ceremonial functions</li>
+                                <li>Designed red-teaming strategies to stress-test LLMs, identifying prompt patterns that trigger hallucinations in agentic decision loops</li>
+                                <li>Co-authored a paper on linguistic bias (SVO/OVS triad) in modern text-to-image models</li>
+                            </ul>
+                        </div>
+                        <div class="htl-detail-inner" data-detail="3">
+                            <div class="htl-detail-head">
+                                <h3>Software Engineer Intern</h3>
+                                <span>Hats by the Hundred (E-Commerce) &bull; Brisbane, Australia &bull; Nov 2023 &ndash; Sep 2024</span>
+                            </div>
+                            <ul>
+                                <li>Designed an autonomous sales agent (RAG-based) using internal support data that now generates $80K in annual revenue</li>
+                                <li>Analyzed Shopify customer data to identify conversion patterns and optimize the UX for maximum engagement</li>
                             </ul>
                         </div>
                     </div>
@@ -314,480 +341,114 @@
             </div>
         </section>
 
-        <!-- Section Divider -->
-        <div class="section-divider"></div>
-
-        <!-- Education Section -->
+        <!-- Education -->
         <section id="education" class="section">
             <div class="container">
-                <h2 class="section-title scroll-animate">Education</h2>
-                
-                <div class="education-content">
-                    <div class="education-item">
-                        <div class="education-text">
-                            <h3>Brown University</h3>
-                            <h4>Providence, RI</h4>
-                            <p class="education-degree">B.S. Applied Mathematics–Computer Science (GPA: 3.85)</p>
-                            <p class="education-date">Expected December 2027 (Early Graduation)</p>
-                            
-                            <div class="education-details">
-                                <div class="activities">
-                                    <h4>Activities</h4>
-                                    <ul>
-                                        <li><strong>Brown Men's Crew</strong> - D1 Athlete</li>
-                                        <li><strong>Quantitative Trading at Brown</strong></li>
-                                        <li><strong>Full Stack at Brown</strong></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="education-image">
-                            <img src="Education/photos/brown_university_image.jpg" alt="Brown University Campus" class="university-image">
-                        </div>
+                <h2>Education</h2>
+                <div class="education-grid">
+
+                    <div class="edu-card">
+                        <h3>Brown University</h3>
+                        <p class="edu-degree">B.S. Applied Mathematics&ndash;Computer Science</p>
+                        <p class="edu-meta">GPA 3.85 &bull; May 2028</p>
+                        <p class="edu-activities">D1 Rowing (20+ hrs/wk) &bull; Quantitative Trading at Brown &bull; Full Stack at Brown &bull; Brown Builders &bull; Brown Chess Club</p>
                     </div>
 
-                    <div class="education-item">
-                        <div class="education-text">
-                            <h3>The Southport School</h3>
-                            <h4>Southport, QLD</h4>
-                            <p class="education-degree">Queensland Certificate of Education (ATAR 99.55)</p>
-                            <p class="education-date">Graduated November 2023</p>
-
-                            <div class="education-details">
-                                <div class="activities">
-                                    <h4>Leadership & Activities</h4>
-                                    <ul>
-                                        <li><strong>Cadet Sergeant</strong> - Australian Army Cadets</li>
-                                        <li><strong>House Captain</strong></li>
-                                        <li><strong>School Prefect</strong></li>
-                                        <li><strong>Tennis Captain</strong> &amp; <strong>Varsity Tennis</strong></li>
-                                        <li><strong>Rowing Vice Captain</strong> &amp; <strong>Varsity Rowing</strong></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="education-image">
-                            <img src="Education/photos/TSS_photo.jpg" alt="The Southport School Campus" class="university-image">
-                        </div>
+                    <div class="edu-card">
+                        <h3>The Southport School</h3>
+                        <p class="edu-degree">Queensland Certificate of Education</p>
+                        <p class="edu-meta">ATAR 99.55 &bull; Graduated Nov 2023</p>
+                        <p class="edu-activities">School Prefect &bull; House Captain &bull; Rowing Vice Captain &bull; Tennis Captain</p>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Section Divider -->
-        <div class="section-divider"></div>
-
-        <!-- Coursework Section -->
-        <section id="coursework" class="section">
-            <div class="container">
-                <h2 class="section-title scroll-animate">Coursework</h2>
-                <p class="coursework-subtitle">Selected coursework from the Applied Mathematics–Computer Science concentration.</p>
-                <div class="coursework-grid">
-                    <div class="coursework-card">
-                        <div class="coursework-term-header">
-                            <h3>Fall 2024</h3>
-                            <span class="coursework-status completed">Completed</span>
-                        </div>
-                        <ul class="course-list">
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">CSCI 0150</span>
-                                    <span class="course-name">Intro to Programming &amp; Computer Science</span>
-                                </div>
-                                <span class="course-grade">A</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">MATH 0100</span>
-                                    <span class="course-name">Single Variable Calculus, II</span>
-                                </div>
-                                <span class="course-grade">A</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">MATH 0520</span>
-                                    <span class="course-name">Linear Algebra</span>
-                                </div>
-                                <span class="course-grade">B</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">FREN 0500</span>
-                                    <span class="course-name">Writing and Speaking French I</span>
-                                </div>
-                                <span class="course-grade">S</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="coursework-card">
-                        <div class="coursework-term-header">
-                            <h3>Spring 2025</h3>
-                            <span class="coursework-status completed">Completed</span>
-                        </div>
-                        <ul class="course-list">
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">APMA 1650</span>
-                                    <span class="course-name">Statistical Inference I</span>
-                                </div>
-                                <span class="course-grade">A</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">CSCI 0200</span>
-                                    <span class="course-name">Program Design: Data Structures &amp; Algorithms</span>
-                                </div>
-                                <span class="course-grade">A</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">CSCI 0220</span>
-                                    <span class="course-name">Discrete Structures &amp; Probability</span>
-                                </div>
-                                <span class="course-grade">A</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">CSCI 1800</span>
-                                    <span class="course-name">Cybersecurity &amp; International Relations</span>
-                                </div>
-                                <span class="course-grade">A</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="coursework-card">
-                        <div class="coursework-term-header">
-                            <h3>Fall 2025</h3>
-                            <span class="coursework-status in-progress">In Progress</span>
-                        </div>
-                        <ul class="course-list">
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">APMA 1170</span>
-                                    <span class="course-name">Introductory Computational Linear Algebra</span>
-                                </div>
-                                <span class="course-grade">IP</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">CSCI 0300</span>
-                                    <span class="course-name">Computer Systems Fundamentals</span>
-                                </div>
-                                <span class="course-grade">IP</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">CSCI 0410</span>
-                                    <span class="course-name">Foundations of Artificial Intelligence</span>
-                                </div>
-                                <span class="course-grade">IP</span>
-                            </li>
-                            <li class="course-entry">
-                                <div class="course-info">
-                                    <span class="course-code">CSCI 0500</span>
-                                    <span class="course-name">Data Structures and Algorithms</span>
-                                </div>
-                                <span class="course-grade">IP</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-divider"></div>
-
-        <!-- Tech Stack Section -->
-        <section id="tech-stack" class="section">
-            <div class="container">
-                <h2 class="section-title scroll-animate">Tech Stack</h2>
-                <div class="skills-grid">
-                    <div class="skills-category scroll-animate scroll-animate-stagger">
-                        <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                        <div class="skills-list">
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">JavaScript</span>
-                            <span class="skill-item">TypeScript</span>
-                            <span class="skill-item">C++</span>
-                            <span class="skill-item">Java</span>
-                            <span class="skill-item">Bash</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-category scroll-animate scroll-animate-stagger">
-                        <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
-                        <div class="skills-list">
-                            <span class="skill-item">Git</span>
-                            <span class="skill-item">VSCode</span>
-                            <span class="skill-item">Firebase</span>
-                            <span class="skill-item">Expo</span>
-                            <span class="skill-item">OpenAI API</span>
-                            <span class="skill-item">Chrome DevTools</span>
-                            <span class="skill-item">IntelliJ</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-category scroll-animate scroll-animate-stagger">
-                        <h3><i class="fas fa-book"></i> Libraries & Frameworks</h3>
-                        <div class="skills-list">
-                            <span class="skill-item">NumPy</span>
-                            <span class="skill-item">Pandas</span>
-                            <span class="skill-item">Scikit-learn</span>
-                            <span class="skill-item">TensorFlow</span>
-                            <span class="skill-item">Matplotlib</span>
-                            <span class="skill-item">React Native</span>
-                        </div>
-                    </div>
-
-                    <div class="skills-category scroll-animate scroll-animate-stagger">
-                        <h3><i class="fas fa-server"></i> Systems & Platforms</h3>
-                        <div class="skills-list">
-                            <span class="skill-item">Linux</span>
-                            <span class="skill-item">MacOS</span>
-                            <span class="skill-item">Firebase</span>
-                            <span class="skill-item">Shopify+</span>
-                            <span class="skill-item">GitHub Actions</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section Divider -->
-        <div class="section-divider"></div>
-
-        <!-- Awards & Recognition Section -->
+        <!-- Awards -->
         <section id="awards" class="section">
             <div class="container">
-                <h2 class="section-title scroll-animate">Awards & Recognition</h2>
+                <h2>Awards & Recognition</h2>
 
-                <div class="recognition-section">
-                    <div class="award-category">
-                        <h4 class="award-category-title">Professional</h4>
-                        <div class="awards-grid">
-                            <div class="award-item">
-                                <div class="award-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="award-content">
-                                    <h4>1st Place - Easy A x Flare x XRPL Hackathon</h4>
-                                    <p class="award-prize">$7,500 USD</p>
-                                </div>
-                            </div>
-
-                            <div class="award-item">
-                                <div class="award-icon">
-                                    <i class="fas fa-medal"></i>
-                                </div>
-                                <div class="award-content">
-                                    <h4>2nd Place - Harvard x Polkadot Hackathon</h4>
-                                    <p class="award-prize">$3,000 USD</p>
-                                </div>
-                            </div>
-
-                            <div class="award-item">
-                                <div class="award-icon">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="award-content">
-                                    <h4>Honorable Mention - Algorand Hackathon</h4>
-                                </div>
-                            </div>
-                        </div>
+                <div class="awards-columns">
+                    <div class="awards-col">
+                        <h3>Hackathons</h3>
+                        <ul class="awards-list">
+                            <li><strong>1st Place</strong> &mdash; Easy A x Flare x XRPL Hackathon ($7,500)</li>
+                            <li><strong>2nd Place</strong> &mdash; Harvard x Polkadot Hackathon ($3,000)</li>
+                            <li><strong>Honorable Mention</strong> &mdash; Algorand Hackathon</li>
+                        </ul>
                     </div>
-
-                    <div class="award-category">
-                        <h4 class="award-category-title">Athletic</h4>
-                        <div class="awards-grid">
-                            <div class="award-item">
-                                <div class="award-icon">
-                                    <i class="fas fa-medal"></i>
-                                </div>
-                                <div class="award-content">
-                                    <h4>Australian Rowing National Championships - Double Scull</h4>
-                                </div>
-                            </div>
-
-                            <div class="award-item">
-                                <div class="award-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="award-content">
-                                    <h4>Queensland Schools State Champion - Men's Single Scull</h4>
-                                </div>
-                            </div>
-
-                            <div class="award-item">
-                                <div class="award-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="award-content">
-                                    <h4>Queensland Schools State Champion - Men's Double Scull</h4>
-                                </div>
-                            </div>
-
-                            <div class="award-item">
-                                <div class="award-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="award-content">
-                                    <h4>Queensland Schools State Champion - Men's Quad Scull</h4>
-                                </div>
-                            </div>
-
-                            <div class="award-item">
-                                <div class="award-icon">
-                                    <i class="fas fa-medal"></i>
-                                </div>
-                                <div class="award-content">
-                                    <h4>Queensland Schools Medallist - Men's Eight</h4>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="awards-col">
+                        <h3>Athletics</h3>
+                        <ul class="awards-list">
+                            <li>Australian Rowing National Championships &mdash; Double Scull</li>
+                            <li>Queensland State Champion &mdash; Single, Double, and Quad Scull</li>
+                            <li>Queensland State Medallist &mdash; Men's Eight</li>
+                        </ul>
+                    </div>
+                    <div class="awards-col">
+                        <h3>Certifications</h3>
+                        <ul class="awards-list">
+                            <li>Yale Financial Markets (Coursera)</li>
+                            <li>Stanford Machine Learning Specialization</li>
+                        </ul>
                     </div>
                 </div>
 
-                <h3 class="section-subtitle scroll-animate">Certifications & Courses</h3>
-                <div class="certificates-grid">
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Certificate of Completion</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">MIT 18.06 Linear Algebra</h4>
-                            <p class="certificate-institution">Massachusetts Institute of Technology</p>
-                            <div class="certificate-date">August 2024</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                    </div>
+            </div>
+        </section>
 
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Certificate of Completion</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">Yale Financial Markets</h4>
-                            <p class="certificate-institution">Coursera</p>
-                            <div class="certificate-date">May 2025</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Specialization Certificate</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">Machine Learning Specialization</h4>
-                            <p class="certificate-institution">Stanford University</p>
-                            <div class="certificate-date">June 2025</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Course Certificate</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">Prompt Engineering</h4>
-                            <p class="certificate-institution">Vanderbilt University</p>
-                            <div class="certificate-date">June 2025</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-medal"></i>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Programming Certificate</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">Introduction to C++</h4>
-                            <p class="certificate-institution">CodeSignal</p>
-                            <div class="certificate-date">June 2025</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Professional Certificate</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">Introduction to Immigration Law</h4>
-                            <p class="certificate-institution">Informed Educational Insights LLC</p>
-                            <div class="certificate-date">August 2025</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Programming Certificate</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">Advanced Python DSA</h4>
-                            <p class="certificate-institution">CodeSignal</p>
-                            <div class="certificate-date">September 2025</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Course Certificate</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">Introduction to Psychology</h4>
-                            <p class="certificate-institution">Yale University</p>
-                            <div class="certificate-date">October 2025</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                    </div>
-
-                    <div class="certificate-card scroll-animate-scale scroll-animate-stagger">
-                        <div class="certificate-header">
-                            <i class="fas fa-certificate"></i>
-                            <span class="certificate-type">Course Certificate</span>
-                        </div>
-                        <div class="certificate-body">
-                            <h4 class="certificate-title">Essentials of Prompt Engineering</h4>
-                            <p class="certificate-institution">Amazon Web Services</p>
-                            <div class="certificate-date">November 2025</div>
-                        </div>
-                        <div class="certificate-seal">
-                            <i class="fas fa-aws"></i>
-                        </div>
-                    </div>
-                </div>
+        <!-- Skills -->
+        <section class="section section-skills">
+            <div class="container">
+                <h2>Tech Stack</h2>
+                <p class="skills-line">
+                    Python &middot; JavaScript &middot; TypeScript &middot; C++ &middot; Java &middot; Bash &middot; SQL &middot;
+                    React &middot; Next.js &middot; FastAPI &middot; Node.js &middot; React Native &middot;
+                    Git &middot; RAG &middot; Agentic Patterns &middot; Cursor &middot; GitHub Copilot &middot; OpenAI API &middot;
+                    NumPy &middot; Pandas &middot; Linux &middot; Shopify+
+                </p>
             </div>
         </section>
     </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Kosta Karathanasopoulos</p>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget" class="chat-widget">
+        <button id="chat-toggle" class="chat-toggle" aria-label="Chat with AI assistant">
+            <svg class="chat-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <svg class="chat-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div id="chat-panel" class="chat-panel">
+            <div class="chat-header">
+                <span class="chat-header-title">Ask about Kosta</span>
+                <span class="chat-header-sub">Powered by Claude</span>
+            </div>
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-msg assistant">
+                    <p>Hi! I can answer questions about Kosta's experience, projects, skills, and background. What would you like to know?</p>
+                </div>
+            </div>
+            <form id="chat-form" class="chat-input-area">
+                <input id="chat-input" type="text" placeholder="Ask anything..." autocomplete="off">
+                <button type="submit" id="chat-send" aria-label="Send message">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
