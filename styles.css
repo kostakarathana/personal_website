@@ -233,6 +233,14 @@ body {
     transition: background 0.15s;
 }
 
+.project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
 .project:hover {
     background: var(--gray-50);
 }
