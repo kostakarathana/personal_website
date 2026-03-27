@@ -136,7 +136,7 @@ body {
 
 .hero-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
     gap: 64px;
     align-items: center;
 }
@@ -144,25 +144,15 @@ body {
 .hero-photos {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 6px;
+    max-width: 280px;
 }
 
 .hero-img {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    border-radius: 6px;
-    filter: grayscale(100%);
-    transition: filter 0.3s;
-}
-
-.hero-img:hover {
-    filter: grayscale(0%);
-}
-
-.hero-img-main {
-    grid-column: 1 / -1;
-    aspect-ratio: 2 / 1;
+    border-radius: 4px;
 }
 
 .hero h1 {
