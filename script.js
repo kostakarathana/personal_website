@@ -52,63 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', updateActive);
     updateActive();
 
-    // ===== Horizontal Timeline =====
-    (function () {
-        var TIMELINE_START = new Date('2023-08-01');
-        var TIMELINE_END = new Date('2026-07-01');
-        var totalMonths = (TIMELINE_END.getFullYear() - TIMELINE_START.getFullYear()) * 12
-            + (TIMELINE_END.getMonth() - TIMELINE_START.getMonth());
-
-        function monthsFrom(dateStr) {
-            var d = new Date(dateStr + '-01');
-            return (d.getFullYear() - TIMELINE_START.getFullYear()) * 12
-                + (d.getMonth() - TIMELINE_START.getMonth());
-        }
-
-        // Position bars
-        var bars = document.querySelectorAll('.htl-bar');
-        bars.forEach(function (bar) {
-            var startOffset = monthsFrom(bar.getAttribute('data-start'));
-            var endOffset = monthsFrom(bar.getAttribute('data-end'));
-            var leftPct = (startOffset / totalMonths) * 100;
-            var widthPct = ((endOffset - startOffset) / totalMonths) * 100;
-            bar.style.left = leftPct + '%';
-            bar.style.width = widthPct + '%';
-        });
-
-        // Render axis labels
-        var axis = document.getElementById('htl-axis');
-        var years = [2024, 2025, 2026];
-        years.forEach(function (year) {
-            var offset = ((year - TIMELINE_START.getFullYear()) * 12) / totalMonths * 100;
-            var label = document.createElement('span');
-            label.className = 'htl-axis-label';
-            label.textContent = year;
-            label.style.left = offset + '%';
-            axis.appendChild(label);
-        });
-
-        // Click to expand
-        var rows = document.querySelectorAll('.htl-row');
-        var details = document.querySelectorAll('.htl-detail-inner');
-
-        rows.forEach(function (row) {
-            row.addEventListener('click', function () {
-                var idx = this.getAttribute('data-exp');
-                var wasActive = this.classList.contains('active');
-
-                rows.forEach(function (r) { r.classList.remove('active'); });
-                details.forEach(function (d) { d.classList.remove('active'); });
-
-                if (!wasActive) {
-                    this.classList.add('active');
-                    var detail = document.querySelector('[data-detail="' + idx + '"]');
-                    if (detail) detail.classList.add('active');
-                }
-            });
-        });
-    })();
-
     // ===== Chat Widget =====
     var chatWidget = document.getElementById('chat-widget');
     var chatToggle = document.getElementById('chat-toggle');
