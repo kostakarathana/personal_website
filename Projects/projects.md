@@ -10,7 +10,6 @@ Last audited against the public GitHub account: 20 July 2026.
 - [Rowing Tools](https://github.com/kostakarathana/rowing-tools) — Python, NumPy, Matplotlib, and FFmpeg tooling for telemetry reports and synchronized per-seat video overlays.
 - [Cloudflare AI Voice Assistant](https://github.com/kostakarathana/cf_ai_voice_LLM) — Voice-first AI prototype using Whisper, Llama 3.3, and Durable Objects.
 - [Markov Decision Simulator](https://github.com/kostakarathana/Markov_Decision_Simulator) — Dependency-free visual editor and solver with value iteration, policy iteration, simulation, and local persistence.
-- [Search Algorithm Visualizer](https://github.com/kostakarathana/RoadsAndSearch) · [Live](https://kostakarathana.github.io/RoadsAndSearch/) — Six search algorithms visualized across a procedurally generated million-cell town.
 - [Wikipedia Random Walk](https://github.com/kostakarathana/Wikipedia_Random_Walk) · [Live](https://kostakarathana.github.io/Wikipedia_Random_Walk/) — D3 explorer for random walks through Wikipedia.
 
 ## Additional experiments
