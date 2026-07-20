@@ -1,0 +1,7 @@
+.tab-strip {
+    display: none;
+}
+
+.tab-panel[hidden] {
+    display: block !important;
+}

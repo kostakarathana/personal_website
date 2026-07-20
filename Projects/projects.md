@@ -1,35 +1,21 @@
-Projects
+# Public project portfolio
 
-Sketch, Scratchoff, and CoinClicker (Hackathons) | HTML/JS/CSS, Python Smart Contracts, Web3 Sep 2025
-– Built a Scratch.mit-inspired Quantitative trading system with event-driven trading executions, as well as an online
-gaming lottery-style system.
-– Used Polkadot, Algorand, and Flare respectively to manage smart contracts and backend development, whilst
-HTML/JS/CSS were used to build lightweight front ends for all projects
-– Received 1st place and 7500 USD cash prize for CoinClicker and 2nd place and 3000 USD cash prize for Scratchoff.
+Last audited against the public GitHub account: 20 July 2026.
 
+## Featured
 
-Brown Men’s Crew team data analysis | Python, Pandas, NumPy – Analyzed crew team rowing data and telemetry, aiding the coaches in making decisions for the team
-– Created metrics such as head-to-head scores of the athletes, speed factors, and insights into team absence.
-– Used python, pandas, numpy, and regex equations to clean messy data
-Jan 2025
+- [World-Model RL in Pommerman](https://github.com/kostakarathana/CS1470-final-project) — PyTorch research comparing PPO with Dreamer-style world-model agents. Includes tests, experiment matrices, cluster scripts, results, course paper, and poster.
+- [Mutual Fund Analysis Platform](https://github.com/kostakarathana/Goldman_ELS) · [Live](https://goldman-els.vercel.app) — CAPM-style mutual-fund projection and comparison prototype built with React, TypeScript, Express, and market-data APIs.
+- [PunchCards](https://github.com/kostakarathana/PunchCards) · [Live](https://punch-cards-gamma.vercel.app) — Next.js/TypeScript generator for structured coding-assistant task cards.
+- [Rowing Tools](https://github.com/kostakarathana/rowing-tools) — Python, NumPy, Matplotlib, and FFmpeg tooling for telemetry reports and synchronized per-seat video overlays.
+- [Cloudflare AI Voice Assistant](https://github.com/kostakarathana/cf_ai_voice_LLM) — Voice-first AI prototype using Whisper, Llama 3.3, and Durable Objects.
+- [Markov Decision Simulator](https://github.com/kostakarathana/Markov_Decision_Simulator) — Dependency-free visual editor and solver with value iteration, policy iteration, simulation, and local persistence.
+- [Search Algorithm Visualizer](https://github.com/kostakarathana/RoadsAndSearch) · [Live](https://kostakarathana.github.io/RoadsAndSearch/) — Six search algorithms visualized across a procedurally generated million-cell town.
+- [Wikipedia Random Walk](https://github.com/kostakarathana/Wikipedia_Random_Walk) · [Live](https://kostakarathana.github.io/Wikipedia_Random_Walk/) — D3 explorer for random walks through Wikipedia.
 
+## Additional experiments
 
-MyHabitBar | HTML/JS/CSS 
-- Chrome extension that allows users to fill in auto-depleting bars once they finish habits
-- Uses decaying functions and local storage to force you to "fill up" habit bars
-
-The Price of YOU! | HTML/JS/CSS 
-- Chrome extension that uses telemetry and advanced algorithmic analysis to determine how much ad revenue 
-and data selling a website uses on you to determine how much value in dollars you have 'given away' of yourself
-
-
-LINKS
---------
-coinclicker link: https://github.com/kostakarathana/CoinClicker 
-sketch link: https://github.com/kostakarathana/chainblock
-scratchoff link: https://github.com/kostakarathana/PD_hackathon
-the price of YOU link: https://chromewebstore.google.com/detail/the-price-of-you/hpolmkpgflkbfbngbhngnigceiofbnei
-myHabitBar link: https://chromewebstore.google.com/detail/myhabitbar/ggnofldipmpjdgadpkobfnjgikgflnol
-
-
-
+- [CoinClicker](https://github.com/kostakarathana/CoinClicker) — first-place Flare hackathon smart-contract gaming prototype.
+- [Sketch](https://github.com/kostakarathana/chainblock) — hackathon prototype mapping a small Blockly trading rule to an Algorand/PyTeal contract.
+- [YOLOv8 Rowing Analysis](https://github.com/kostakarathana/YOLOV8-rowing) — rowing-video pose-estimation overlays.
+- [Graphic Canvas](https://github.com/kostakarathana/graphite) — Next.js image-editing workflow driven by a rough canvas and creative brief.

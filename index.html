@@ -1,375 +1,572 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kosta Karathanasopoulos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#050505">
+    <meta name="description" content="Kosta Karathanasopoulos is a software engineer and Applied Mathematics–Computer Science student at Brown University working across product systems, machine learning, and quantitative tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kosta Karathanasopoulos — Software Engineer">
+    <meta property="og:description" content="Software engineering, machine learning research, and quantitative systems.">
+    <meta property="og:url" content="https://www.kostakaras.com/">
+    <meta property="og:image" content="https://www.kostakaras.com/og.png">
+    <meta property="og:image:width" content="1731">
+    <meta property="og:image:height" content="909">
+    <meta property="og:image:alt" content="Kosta Karathanasopoulos — Software Engineer and Applied Mathematics–Computer Science">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kosta Karathanasopoulos — Software Engineer">
+    <meta name="twitter:description" content="Software engineering, machine learning research, and quantitative systems.">
+    <meta name="twitter:image" content="https://www.kostakaras.com/og.png">
+    <link rel="canonical" href="https://www.kostakaras.com/">
+    <link rel="icon" href="photos/headshot.jpeg" type="image/jpeg">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Kosta Karathanasopoulos — Software Engineer</title>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">KK</a>
-            <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#awards">Awards</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-            </button>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+        <div class="shell header-primary">
+            <a class="wordmark" href="#overview" data-select-tab="overview" aria-label="Kosta Karathanasopoulos, overview">
+                <span class="wordmark-mark" aria-hidden="true">KK</span>
+                <span class="wordmark-name">Kosta Karathanasopoulos</span>
+            </a>
+
+            <nav class="utility-nav" aria-label="External links">
+                <a href="https://github.com/kostakarathana" target="_blank" rel="noreferrer">GitHub<span aria-hidden="true"> ↗</span></a>
+                <a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" target="_blank" rel="noreferrer">LinkedIn<span aria-hidden="true"> ↗</span></a>
+                <a href="mailto:kostakarathanasopoulos@gmail.com">Email</a>
+            </nav>
         </div>
-    </nav>
 
-    <main>
-        <!-- Hero -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-layout">
-                    <div class="hero-text">
-                        <h1>Kosta Karathanasopoulos</h1>
-                        <p class="hero-sub">Software Engineer & Applied Mathematics @ Brown University</p>
-                        <p class="hero-desc">
-                            I build things across AI/ML, full-stack web, prediction markets, and computer vision.
-                            Currently an undergraduate researcher at Brown's SWRL Lab and seeking SWE and quantitative roles.
-                        </p>
-                        <div class="hero-links">
-                            <a href="mailto:kostakarathanasopoulos@gmail.com">Email</a>
-                            <a href="https://github.com/kostakarathana" target="_blank" rel="noopener">GitHub</a>
-                            <a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" target="_blank" rel="noopener">LinkedIn</a>
-                        </div>
+        <div class="tab-strip">
+            <nav class="shell tablist" role="tablist" aria-label="Portfolio sections">
+                <a class="tab" id="tab-overview" href="#overview" role="tab" aria-controls="panel-overview" aria-selected="true" tabindex="0">Overview</a>
+                <a class="tab" id="tab-research" href="#research" role="tab" aria-controls="panel-research" aria-selected="false" tabindex="-1">Research</a>
+                <a class="tab" id="tab-engineering" href="#engineering" role="tab" aria-controls="panel-engineering" aria-selected="false" tabindex="-1">Engineering</a>
+                <a class="tab" id="tab-experience" href="#experience" role="tab" aria-controls="panel-experience" aria-selected="false" tabindex="-1">Experience</a>
+                <a class="tab" id="tab-cv" href="#cv" role="tab" aria-controls="panel-cv" aria-selected="false" tabindex="-1">CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="shell site-main" tabindex="-1">
+        <section class="tab-panel is-active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+            <div class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">Software engineer · Applied mathematics</p>
+                    <h1>Kosta<br>Karathanasopoulos</h1>
+                    <p class="hero-lead">I build reliable product systems and research tools at the intersection of software engineering, machine learning, and quantitative modeling.</p>
+                    <p class="hero-context">Founding Engineer at Spike and an Applied Mathematics–Computer Science student at Brown University. Previously an undergraduate researcher in Brown's SWRL Lab.</p>
+
+                    <div class="hero-actions" role="group" aria-label="Primary contact links">
+                        <a class="button button-solid" href="mailto:kostakarathanasopoulos@gmail.com">Get in touch</a>
+                        <a class="button" href="https://github.com/kostakarathana" target="_blank" rel="noreferrer">View GitHub <span aria-hidden="true">↗</span></a>
                     </div>
-                    <div class="hero-photos">
-                        <img src="photos/headshot.jpeg" alt="Kosta Karathanasopoulos" class="hero-img">
-                        <img src="photos/rowing.png" alt="Rowing" class="hero-img">
-                        <img src="photos/Hackathon_Prize.jpeg" alt="Hackathon win" class="hero-img">
-                        <img src="photos/hackathon2.jpeg" alt="Hackathon presentation" class="hero-img">
-                    </div>
+
+                    <p class="availability"><span aria-hidden="true"></span>Seeking 2027 internships in software engineering and quantitative development, research, and trading.</p>
                 </div>
+
+                <figure class="portrait-frame">
+                    <img src="photos/headshot.jpeg" alt="Portrait of Kosta Karathanasopoulos" width="422" height="480">
+                    <figcaption>Brown University · Providence, RI</figcaption>
+                </figure>
             </div>
-        </section>
 
-        <!-- Projects -->
-        <section id="projects" class="section">
-            <div class="container">
-                <h2>Selected Projects</h2>
-                <div class="projects-grid">
+            <dl class="metrics" aria-label="Selected facts">
+                <div>
+                    <dt>$250K</dt>
+                    <dd>Funding round supported through Spike product work</dd>
+                </div>
+                <div>
+                    <dt>2 / 20</dt>
+                    <dd>Goldman Sachs Emerging Leaders team result</dd>
+                </div>
+                <div>
+                    <dt>3.85</dt>
+                    <dd>Brown University GPA</dd>
+                </div>
+                <div>
+                    <dt>$10.5K</dt>
+                    <dd>Combined prizes across two hackathon placements</dd>
+                </div>
+            </dl>
 
-                    <article class="project">
-                        <img src="project_photos/spike.png" alt="Spike screenshot" class="project-img">
-                        <div class="project-top">
+            <section class="content-section" aria-labelledby="selected-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-index">01 / Selected work</p>
+                        <h2 id="selected-heading">Across research and engineering</h2>
+                    </div>
+                    <button class="text-button" type="button" data-select-tab="engineering">All projects <span aria-hidden="true">→</span></button>
+                </div>
+
+                <div class="feature-list">
+                    <article class="feature-row">
+                        <p class="feature-meta">2026 · Product engineering</p>
+                        <div>
                             <h3>Spike</h3>
+                            <p>Core React/TypeScript and FastAPI/Python architecture for a prediction-market startup, plus release safeguards and production monitoring during onboarding of thousands of users.</p>
                         </div>
-                        <p>Prediction market platform with real-time dashboards, leaderboards, clubs, and admin panels. Complex multi-page React frontend backed by a FastAPI service.</p>
-                        <div class="tags">
-                            <span>Next.js</span><span>React 19</span><span>FastAPI</span><span>PostgreSQL</span><span>Tailwind</span>
+                        <span class="feature-status">Founding Engineer</span>
+                    </article>
+
+                    <article class="feature-row">
+                        <p class="feature-meta">2025 · AI safety</p>
+                        <div>
+                            <h3>Adversarial LLM evaluation</h3>
+                            <p>A controlled evaluation pipeline for hallucination, bias, and safety failure modes in youth-safety contexts, developed in Brown University's SWRL Lab.</p>
+                        </div>
+                        <button class="row-link" type="button" data-select-tab="research">Research <span aria-hidden="true">→</span></button>
+                    </article>
+
+                    <article class="feature-row">
+                        <p class="feature-meta">2026 · Reinforcement learning</p>
+                        <div>
+                            <h3>World-model agents in Pommerman</h3>
+                            <p>A PyTorch research project comparing PPO with Dreamer-style world-model agents in a multi-agent environment, with reproducible configs, tests, results, a course paper, and poster.</p>
+                        </div>
+                        <a class="row-link" href="https://github.com/kostakarathana/CS1470-final-project" target="_blank" rel="noreferrer">Code <span aria-hidden="true">↗</span></a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="content-section split-section" aria-labelledby="focus-heading">
+                <div>
+                    <p class="section-index">02 / Focus</p>
+                    <h2 id="focus-heading">What I work on</h2>
+                </div>
+                <div class="focus-grid">
+                    <div>
+                        <h3>Product systems</h3>
+                        <p>Full-stack product architecture, reliable release workflows, observability, and user-facing interfaces used during onboarding of thousands of users.</p>
+                    </div>
+                    <div>
+                        <h3>Machine learning</h3>
+                        <p>Model evaluation, adversarial testing, reinforcement learning, computer vision, and practical AI integrations.</p>
+                    </div>
+                    <div>
+                        <h3>Quantitative tools</h3>
+                        <p>Prediction markets, portfolio analysis, simulation, data pipelines, and decision-support interfaces.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="tab-panel" id="panel-research" role="tabpanel" aria-labelledby="tab-research" tabindex="0" hidden>
+            <header class="page-intro">
+                <p class="eyebrow">Research</p>
+                <h1>Reliable models,<br>useful evaluations.</h1>
+                <p>I am interested in robustness, agentic systems, and model-based learning: how learned systems fail, how to measure those failures, and how to build better engineering around them.</p>
+            </header>
+
+            <section class="content-section" aria-labelledby="research-work-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-index">01 / Work</p>
+                        <h2 id="research-work-heading">Research projects</h2>
+                    </div>
+                </div>
+
+                <div class="research-list">
+                    <article class="research-row">
+                        <div class="research-year">2025</div>
+                        <div class="research-body">
+                            <p class="research-status">Research manuscript · Brown SWRL Lab</p>
+                            <h3>Adversarial LLM tactics in youth-safety contexts</h3>
+                            <p class="research-byline">Undergraduate Research Assistant · advised by Prof. Diana Freed</p>
+                            <p>Built a Python/OpenAI API evaluation pipeline to test robustness across controlled adversarial prompt classes. Logged model responses, failure categories, and quantitative safety metrics, then analyzed recurring hallucination, bias, and safety failure patterns.</p>
+                            <ul class="method-list" aria-label="Methods used">
+                                <li>LLM evaluation</li>
+                                <li>Red teaming</li>
+                                <li>Experimental design</li>
+                                <li>Python</li>
+                            </ul>
+                        </div>
+                        <div class="artifact-note">Co-authored manuscript</div>
+                    </article>
+
+                    <article class="research-row">
+                        <div class="research-year">2026</div>
+                        <div class="research-body">
+                            <p class="research-status">Deep learning research project · Brown CSCI 1470</p>
+                            <h3>World models versus model-free reinforcement learning</h3>
+                            <p class="research-byline">Multi-agent Pommerman environment</p>
+                            <p>Compared a PPO baseline with Dreamer-style world-model agents in PyTorch. The repository includes tests, configurable experiments, cluster scripts, committed results, a course paper, and a poster; conclusions are presented as preliminary and compute-limited.</p>
+                            <ul class="method-list" aria-label="Methods used">
+                                <li>PyTorch</li>
+                                <li>PPO</li>
+                                <li>World models</li>
+                                <li>Multi-agent RL</li>
+                            </ul>
+                        </div>
+                        <a class="artifact-link" href="https://github.com/kostakarathana/CS1470-final-project" target="_blank" rel="noreferrer">Repository <span aria-hidden="true">↗</span></a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="content-section split-section" aria-labelledby="methods-heading">
+                <div>
+                    <p class="section-index">02 / Methods</p>
+                    <h2 id="methods-heading">Technical foundation</h2>
+                </div>
+                <div class="focus-grid">
+                    <div>
+                        <h3>Evaluation</h3>
+                        <p>Controlled prompt variants, failure taxonomies, quantitative metrics, reproducible experiment logging, and comparative analysis.</p>
+                    </div>
+                    <div>
+                        <h3>Learning systems</h3>
+                        <p>Deep learning, reinforcement learning, model-based agents, statistical inference, and computational linear algebra.</p>
+                    </div>
+                    <div>
+                        <h3>Implementation</h3>
+                        <p>Python, PyTorch, TensorFlow, OpenAI API, NumPy, Pandas, scikit-learn, and Linux-based experiment workflows.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="tab-panel" id="panel-engineering" role="tabpanel" aria-labelledby="tab-engineering" tabindex="0" hidden>
+            <header class="page-intro">
+                <p class="eyebrow">Engineering</p>
+                <h1>Products, systems,<br>and experiments.</h1>
+                <p>Selected public work across AI, finance, developer tools, visualization, and data systems. Project descriptions reflect the current repositories rather than older portfolio copy.</p>
+            </header>
+
+            <section class="content-section" aria-labelledby="projects-heading">
+                <div class="project-heading">
+                    <div>
+                        <p class="section-index">01 / Public work</p>
+                        <h2 id="projects-heading">Projects</h2>
+                    </div>
+                    <div class="project-filters" role="group" aria-label="Filter projects">
+                        <button type="button" data-filter="all" aria-pressed="true">All</button>
+                        <button type="button" data-filter="ai" aria-pressed="false">AI / Research</button>
+                        <button type="button" data-filter="systems" aria-pressed="false">Systems</button>
+                        <button type="button" data-filter="product" aria-pressed="false">Product</button>
+                        <button type="button" data-filter="finance" aria-pressed="false">Finance</button>
+                    </div>
+                </div>
+
+                <p class="filter-status" id="filter-status" aria-live="polite">Showing 12 projects</p>
+
+                <div class="project-list">
+                    <article class="project-row" data-category="ai systems">
+                        <div class="project-meta"><span>2026</span><span>AI / Research</span></div>
+                        <div class="project-main">
+                            <h3>World-Model RL in Pommerman</h3>
+                            <p>PyTorch research comparing PPO with Dreamer-style agents in a multi-agent environment, supported by tests, experiment configs, results, a course paper, and a poster.</p>
+                            <ul class="tech-list"><li>Python</li><li>PyTorch</li><li>Reinforcement learning</li></ul>
+                        </div>
+                        <div class="project-links"><a href="https://github.com/kostakarathana/CS1470-final-project" target="_blank" rel="noreferrer">Code ↗</a></div>
+                    </article>
+
+                    <article class="project-row" data-category="finance product">
+                        <div class="project-meta"><span>2026</span><span>Finance / Product</span></div>
+                        <div class="project-main">
+                            <h3>Mutual Fund Analysis Platform</h3>
+                            <p>Public CAPM-style mutual-fund projection and comparison prototype, built with React and Express around market-data APIs.</p>
+                            <ul class="tech-list"><li>React</li><li>TypeScript</li><li>Node.js</li><li>Express</li></ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://goldman-els.vercel.app" target="_blank" rel="noreferrer">Live ↗</a>
+                            <a href="https://github.com/kostakarathana/Goldman_ELS" target="_blank" rel="noreferrer">Code ↗</a>
                         </div>
                     </article>
 
-                    <article class="project">
-                        <img src="project_photos/polymarket.png" alt="Polymarket Tools screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>Polymarket Tools</h3>
+                    <article class="project-row" data-category="product systems">
+                        <div class="project-meta"><span>2026</span><span>Developer tools</span></div>
+                        <div class="project-main">
+                            <h3>PunchCards</h3>
+                            <p>Generates structured task cards for coding assistants across development, security, data/ML, infrastructure, documentation, and API workflows.</p>
+                            <ul class="tech-list"><li>Next.js 14</li><li>TypeScript</li><li>Structured XML</li></ul>
                         </div>
-                        <p>Python library for Polymarket prediction markets. Arbitrage detection, orderbook analysis, position tracking, and market discovery.</p>
-                        <div class="tags">
-                            <span>Python</span><span>httpx</span><span>Pandas</span>
-                        </div>
-                    </article>
-
-                    <article class="project">
-                        <img src="project_photos/coinclicker.png" alt="CoinClicker screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>CoinClicker</h3>
-                            <a href="https://github.com/kostakarathana/CoinClicker" target="_blank" rel="noopener">GitHub &rarr;</a>
-                        </div>
-                        <p>Smart contract gaming lottery on Flare Network. Won 1st place ($7,500) at the Easy A x Flare x XRPL Hackathon.</p>
-                        <div class="tags">
-                            <span>Solidity</span><span>Flare Network</span><span>JavaScript</span>
-                        </div>
-                        <span class="project-award">1st Place &mdash; $7,500</span>
-                    </article>
-
-                    <article class="project">
-                        <img src="project_photos/goldman_els.png" alt="Goldman ELS Calculator screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>Goldman Sachs ELS Calculator</h3>
-                            <a href="https://github.com/kostakarathana/Goldman_ELS" target="_blank" rel="noopener">GitHub &rarr;</a>
-                        </div>
-                        <p>Financial calculator for mutual fund investments using the CAPM model. Calculates future value based on historical returns, beta, and risk-free rates from the FRED API. Made as part of the Goldman Sachs ELS program in Texas.</p>
-                        <div class="tags">
-                            <span>React</span><span>Node.js</span><span>Express</span><span>CAPM</span>
+                        <div class="project-links">
+                            <a href="https://punch-cards-gamma.vercel.app" target="_blank" rel="noreferrer">Live ↗</a>
+                            <a href="https://github.com/kostakarathana/PunchCards" target="_blank" rel="noreferrer">Code ↗</a>
                         </div>
                     </article>
 
-                    <article class="project">
-                        <img src="project_photos/sketch.png" alt="Sketch screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>Sketch</h3>
-                            <a href="https://github.com/kostakarathana/chainblock" target="_blank" rel="noopener">GitHub &rarr;</a>
-                        </div>
-                        <p>Quantitative trading system with event-driven executions and algorithmic trading strategies on Algorand.</p>
-                        <div class="tags">
-                            <span>Python</span><span>Algorand</span><span>Smart Contracts</span>
-                        </div>
-                        <span class="project-award">Honorable Mention</span>
-                    </article>
-
-                    <article class="project">
-                        <img src="project_photos/rowing_telemetry.png" alt="Rowing Telemetry Tools screenshot" class="project-img">
-                        <div class="project-top">
+                    <article class="project-row" data-category="systems">
+                        <div class="project-meta"><span>2026</span><span>Data / Systems</span></div>
+                        <div class="project-main">
                             <h3>Rowing Telemetry Tools</h3>
-                            <a href="https://github.com/kostakarathana/rowing-tools" target="_blank" rel="noopener">GitHub &rarr;</a>
+                            <p>Aligns per-seat telemetry with race video and renders animated power, angle, timing, and slip metrics as coach-facing overlays.</p>
+                            <ul class="tech-list"><li>Python</li><li>FFmpeg</li><li>Matplotlib</li><li>NumPy</li></ul>
                         </div>
-                        <p>Animated stats overlay from rowing telemetry data and statsheet generator. Imports CSV data and renders video overlays via FFmpeg.</p>
-                        <div class="tags">
-                            <span>Python</span><span>Matplotlib</span><span>FFmpeg</span><span>NumPy</span>
+                        <div class="project-links"><a href="https://github.com/kostakarathana/rowing-tools" target="_blank" rel="noreferrer">Code ↗</a></div>
+                    </article>
+
+                    <article class="project-row" data-category="ai product systems">
+                        <div class="project-meta"><span>2025</span><span>AI / Product</span></div>
+                        <div class="project-main">
+                            <h3>Cloudflare AI Voice Assistant</h3>
+                            <p>Browser voice interface on Cloudflare Workers using Whisper for speech recognition, Llama 3.3 for responses, and Durable Objects for conversation state.</p>
+                            <ul class="tech-list"><li>TypeScript</li><li>Cloudflare Workers</li><li>Whisper</li><li>Durable Objects</li></ul>
+                        </div>
+                        <div class="project-links"><a href="https://github.com/kostakarathana/cf_ai_voice_LLM" target="_blank" rel="noreferrer">Code ↗</a></div>
+                    </article>
+
+                    <article class="project-row" data-category="ai product">
+                        <div class="project-meta"><span>2025</span><span>Simulation</span></div>
+                        <div class="project-main">
+                            <h3>Markov Decision Simulator</h3>
+                            <p>Dependency-free browser editor and solver for Markov decision processes with value iteration, Monte Carlo policy rollouts, JSON exchange, and local persistence.</p>
+                            <ul class="tech-list"><li>JavaScript</li><li>MDPs</li><li>Monte Carlo</li></ul>
+                        </div>
+                        <div class="project-links"><a href="https://github.com/kostakarathana/Markov_Decision_Simulator" target="_blank" rel="noreferrer">Code ↗</a></div>
+                    </article>
+
+                    <article class="project-row" data-category="systems product">
+                        <div class="project-meta"><span>2025</span><span>Algorithms</span></div>
+                        <div class="project-main">
+                            <h3>Search Algorithm Visualizer</h3>
+                            <p>Visualizes six search algorithms across a procedurally generated 1000×1000 town, including Dijkstra, A*, greedy best-first, and bidirectional search.</p>
+                            <ul class="tech-list"><li>JavaScript</li><li>Canvas</li><li>Graph search</li></ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://kostakarathana.github.io/RoadsAndSearch/" target="_blank" rel="noreferrer">Live ↗</a>
+                            <a href="https://github.com/kostakarathana/RoadsAndSearch" target="_blank" rel="noreferrer">Code ↗</a>
                         </div>
                     </article>
 
-                    <article class="project">
-                        <img src="project_photos/rowingYOLOV8.png" alt="YOLOV8 Rowing Analysis screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>YOLOV8 Rowing Analysis</h3>
-                            <a href="https://github.com/kostakarathana/YOLOV8-rowing" target="_blank" rel="noopener">GitHub &rarr;</a>
+                    <article class="project-row" data-category="finance product">
+                        <div class="project-meta"><span>2025</span><span>Finance / Web3</span></div>
+                        <div class="project-main">
+                            <h3>Sketch</h3>
+                            <p>Hackathon prototype mapping a small Blockly price-condition and buy/sell rule to an Algorand/PyTeal smart contract.</p>
+                            <ul class="tech-list"><li>Python</li><li>Blockly</li><li>PyTeal</li><li>Algorand</li></ul>
                         </div>
-                        <p>Real-time pose estimation overlay for rowing videos using YOLOv8. Frame-by-frame body angle analysis with interactive controls and confidence thresholds.</p>
-                        <div class="tags">
-                            <span>Python</span><span>YOLOv8</span><span>OpenCV</span><span>NumPy</span>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/kostakarathana/chainblock" target="_blank" rel="noreferrer">Code ↗</a></div>
                     </article>
 
-                    <article class="project">
-                        <img src="project_photos/go_game.png" alt="Go AI screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>Go AI &mdash; Parallel MCTS</h3>
+                    <article class="project-row" data-category="finance product">
+                        <div class="project-meta"><span>2025</span><span>Hackathon / Web3</span></div>
+                        <div class="project-main">
+                            <h3>CoinClicker</h3>
+                            <p>Smart-contract gaming prototype on Flare Network, built under a hackathon deadline and awarded first place with a $7,500 prize.</p>
+                            <ul class="tech-list"><li>Solidity</li><li>Flare</li><li>JavaScript</li></ul>
                         </div>
-                        <p>Go game AI achieving 88.3% win rate using Root Parallel MCTS with 8 workers, Zobrist hashing, opening books, and territory-aware heuristics.</p>
-                        <div class="tags">
-                            <span>Python</span><span>PyTorch</span><span>Multiprocessing</span><span>MCTS</span>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/kostakarathana/CoinClicker" target="_blank" rel="noreferrer">Code ↗</a></div>
                     </article>
 
-                    <article class="project">
-                        <img src="project_photos/presedential_brief.png" alt="PresidentialBrief screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>PresidentialBrief</h3>
-                        </div>
-                        <p>Full-stack SaaS that delivers personalized AI-generated weekly news briefs via email. User auth, scheduled cron jobs, and OpenAI-powered content generation.</p>
-                        <div class="tags">
-                            <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>OpenAI</span><span>Prisma</span>
-                        </div>
-                    </article>
-
-                    <article class="project">
-                        <img src="project_photos/recruit-tool.png" alt="Recruit Analysis Tool screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>Recruit Analysis Tool</h3>
-                        </div>
-                        <p>Rowing recruit scouting platform for Brown Athletics. Coaches can discover, filter, and track recruits with detailed profiles and batch web scraping.</p>
-                        <div class="tags">
-                            <span>React</span><span>Vite</span><span>React Router</span>
-                        </div>
-                    </article>
-
-                    <article class="project">
-                        <img src="project_photos/scratchoff.png" alt="Scratchoff screenshot" class="project-img">
-                        <div class="project-top">
-                            <h3>Scratchoff</h3>
-                            <a href="https://github.com/kostakarathana/PD_hackathon" target="_blank" rel="noopener">GitHub &rarr;</a>
-                        </div>
-                        <p>Interactive blockchain scratch-off game with smart contract management on Polkadot. Won 2nd place ($3,000) at the Harvard x Polkadot Hackathon.</p>
-                        <div class="tags">
-                            <span>JavaScript</span><span>Smart Contracts</span><span>Polkadot</span>
-                        </div>
-                        <span class="project-award">2nd Place &mdash; $3,000</span>
-                    </article>
-
-                    <article class="project">
-                        <img src="project_photos/wikipedia_random_walk.png" alt="Wikipedia Random Walk screenshot" class="project-img">
-                        <div class="project-top">
+                    <article class="project-row" data-category="product systems">
+                        <div class="project-meta"><span>2025</span><span>Data visualization</span></div>
+                        <div class="project-main">
                             <h3>Wikipedia Random Walk</h3>
-                            <a href="https://github.com/kostakarathana/Wikipedia_Random_Walk" target="_blank" rel="noopener">GitHub &rarr;</a>
+                            <p>Client-side explorer that builds a category-aware Wikipedia graph and renders a live weighted multigraph as the walk progresses.</p>
+                            <ul class="tech-list"><li>D3.js</li><li>MediaWiki API</li><li>Web Audio</li></ul>
                         </div>
-                        <p>Explores Wikipedia via a category-aware random walk, building a weighted multigraph rendered as a live D3 force layout with hop-based colouring and audio cues.</p>
-                        <div class="tags">
-                            <span>D3.js</span><span>MediaWiki API</span><span>Web Audio API</span>
+                        <div class="project-links">
+                            <a href="https://kostakarathana.github.io/Wikipedia_Random_Walk/" target="_blank" rel="noreferrer">Live ↗</a>
+                            <a href="https://github.com/kostakarathana/Wikipedia_Random_Walk" target="_blank" rel="noreferrer">Code ↗</a>
                         </div>
                     </article>
 
+                    <article class="project-row" data-category="ai systems">
+                        <div class="project-meta"><span>2026</span><span>Computer vision</span></div>
+                        <div class="project-main">
+                            <h3>YOLOv8 Rowing Analysis</h3>
+                            <p>Frame-by-frame pose-estimation tooling for rowing video, with body-angle overlays, interactive playback controls, and configurable confidence thresholds.</p>
+                            <ul class="tech-list"><li>Python</li><li>YOLOv8</li><li>OpenCV</li><li>NumPy</li></ul>
+                        </div>
+                        <div class="project-links"><a href="https://github.com/kostakarathana/YOLOV8-rowing" target="_blank" rel="noreferrer">Code ↗</a></div>
+                    </article>
+
+                    <article class="project-row" data-category="ai product">
+                        <div class="project-meta"><span>2026</span><span>Creative tooling</span></div>
+                        <div class="project-main">
+                            <h3>Graphic Canvas</h3>
+                            <p>Compact image-editing workflow that combines a rough canvas export with a creative brief to produce a refined graphic through an image-generation model.</p>
+                            <ul class="tech-list"><li>Next.js</li><li>TypeScript</li><li>OpenAI Images</li></ul>
+                        </div>
+                        <div class="project-links"><a href="https://github.com/kostakarathana/graphite" target="_blank" rel="noreferrer">Code ↗</a></div>
+                    </article>
                 </div>
-            </div>
+            </section>
+
+            <p class="archive-link">More experiments and coursework are available on <a href="https://github.com/kostakarathana?tab=repositories" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>.</p>
         </section>
 
-        <!-- Experience -->
-        <section id="experience" class="section">
-            <div class="container">
-                <h2>Experience</h2>
-                <div class="exp-timeline">
+        <section class="tab-panel" id="panel-experience" role="tabpanel" aria-labelledby="tab-experience" tabindex="0" hidden>
+            <header class="page-intro">
+                <p class="eyebrow">Experience</p>
+                <h1>Building from research<br>to production.</h1>
+                <p>Product engineering, quantitative tooling, and applied AI work across an early-stage startup, Brown University, Goldman Sachs, and e-commerce.</p>
+            </header>
 
-                    <div class="exp-card">
-                        <div class="exp-date">Jan 2026 &ndash; Present</div>
-                        <div class="exp-content">
-                            <h3>Goldman Sachs Emerging Leaders</h3>
-                            <span class="exp-company">Goldman Sachs</span>
+            <section class="content-section" aria-labelledby="experience-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-index">01 / Timeline</p>
+                        <h2 id="experience-heading">Selected experience</h2>
+                    </div>
+                </div>
+
+                <div class="experience-list">
+                    <article class="experience-row">
+                        <div class="experience-date">Jan 2026 — Present</div>
+                        <div class="experience-body">
+                            <p class="experience-org">Spike · Boston, MA</p>
+                            <h3>Founding Engineer</h3>
                             <ul>
-                                <li>Creating a mutual fund analysis tool with a React/TS frontend coupled with a FastAPI/Python backend</li>
-                                <li>Leveraging OpenAI API to provide qualitative insights into users' investment strategy</li>
+                                <li>Built the core React/TypeScript and FastAPI/Python architecture for a prediction-market startup, including reusable frontend patterns, backend API structure, and investor-facing product flows supporting a $250K funding round.</li>
+                                <li>Improved release reliability during onboarding of thousands of users through Playwright end-to-end tests, pre-commit and pre-push checks, dependency review workflows, and Mixpanel production alerts.</li>
                             </ul>
                         </div>
-                    </div>
+                        <ul class="experience-tech" aria-label="Technologies"><li>React</li><li>TypeScript</li><li>FastAPI</li><li>Playwright</li><li>Mixpanel</li></ul>
+                    </article>
 
-                    <div class="exp-card">
-                        <div class="exp-date">Jan 2025 &ndash; Present</div>
-                        <div class="exp-content">
-                            <h3>Founding Engineer / Co-founder</h3>
-                            <span class="exp-company">Spike &bull; New York City</span>
+                    <article class="experience-row">
+                        <div class="experience-date">Jan 2026 — May 2026</div>
+                        <div class="experience-body">
+                            <p class="experience-org">Goldman Sachs Emerging Leaders Series · Providence, RI</p>
+                            <h3>Full-Stack Developer · Semester-long project</h3>
                             <ul>
-                                <li>Architecting the core React frontend and user experience. Secured $150,000 in angel funding.</li>
-                                <li>Accelerated product development by adopting AI-native workflows (Cursor, Copilot) to rapidly prototype and iterate on complex UI states</li>
-                                <li>Optimizing technical architecture to support high-throughput interactions between users and autonomous backend systems</li>
+                                <li>Built a mutual-fund analysis platform with a team of six using a React/TypeScript interface; placed second among 20 teams.</li>
+                                <li>Implemented data-normalization and portfolio-statistics workflows, then integrated OpenAI API outputs for structured investment-strategy analysis.</li>
                             </ul>
                         </div>
-                    </div>
+                        <ul class="experience-tech" aria-label="Technologies"><li>React</li><li>TypeScript</li><li>Data pipelines</li><li>OpenAI API</li></ul>
+                    </article>
 
-                    <div class="exp-card">
-                        <div class="exp-date">Jan 2025 &ndash; Dec 2025</div>
-                        <div class="exp-content">
-                            <h3>Research Assistant, AI/ML Robustness</h3>
-                            <span class="exp-company">Brown University, SWRL/LUNAR &bull; Providence, RI</span>
+                    <article class="experience-row">
+                        <div class="experience-date">Jan 2025 — Dec 2025</div>
+                        <div class="experience-body">
+                            <p class="experience-org">Brown University · SWRL Lab · Providence, RI</p>
+                            <h3>Undergraduate Research Assistant</h3>
                             <ul>
-                                <li>Designed red-teaming strategies to stress-test LLMs, identifying prompt patterns that trigger hallucinations in agentic decision loops</li>
-                                <li>Co-authored a paper on linguistic bias (SVO/OVS triad) in modern text-to-image models</li>
+                                <li>Built a Python/OpenAI API evaluation pipeline under Prof. Diana Freed to test LLM robustness across adversarial prompt classes, failure categories, and quantitative safety metrics.</li>
+                                <li>Designed controlled experiments for hallucination, bias, and safety failure modes and co-authored a research manuscript on adversarial LLM tactics in youth-safety contexts.</li>
                             </ul>
                         </div>
-                    </div>
+                        <ul class="experience-tech" aria-label="Technologies"><li>Python</li><li>LLM evaluation</li><li>Red teaming</li><li>OpenAI API</li></ul>
+                    </article>
 
-                    <div class="exp-card">
-                        <div class="exp-date">Nov 2023 &ndash; Sep 2024</div>
-                        <div class="exp-content">
+                    <article class="experience-row">
+                        <div class="experience-date">Jan 2024 — Apr 2024</div>
+                        <div class="experience-body">
+                            <p class="experience-org">Hats by the Hundred · Brisbane, Australia</p>
                             <h3>Software Engineer Intern</h3>
-                            <span class="exp-company">Hats by the Hundred (E-Commerce) &bull; Brisbane, Australia</span>
                             <ul>
-                                <li>Designed an autonomous sales agent (RAG-based) using internal support data that now generates $80K in annual revenue</li>
-                                <li>Analyzed Shopify customer data to identify conversion patterns and optimize the UX for maximum engagement</li>
+                                <li>Implemented a Shopify-integrated customer-support chatbot using customer-behavior data, driving $80K in attributed revenue and contributing 5% of total revenue.</li>
+                                <li>Analyzed conversion and customer-segment data to personalize chatbot tone by product category and purchase behavior.</li>
                             </ul>
                         </div>
-                    </div>
-
+                        <ul class="experience-tech" aria-label="Technologies"><li>Shopify</li><li>Data analysis</li><li>Customer support AI</li></ul>
+                    </article>
                 </div>
-            </div>
+            </section>
         </section>
 
-        <!-- Education -->
-        <section id="education" class="section">
-            <div class="container">
-                <h2>Education</h2>
-                <div class="education-grid">
-
-                    <div class="edu-card">
-                        <h3>Brown University</h3>
-                        <p class="edu-degree">B.S. Applied Mathematics&ndash;Computer Science</p>
-                        <p class="edu-meta">GPA 3.85 &bull; May 2028</p>
-                        <p class="edu-activities">D1 Rowing (20+ hrs/wk) &bull; Quantitative Trading at Brown &bull; Full Stack at Brown &bull; Brown Builders &bull; Brown Chess Club</p>
-                    </div>
-
-                    <div class="edu-card">
-                        <h3>The Southport School</h3>
-                        <p class="edu-degree">Queensland Certificate of Education</p>
-                        <p class="edu-meta">ATAR 99.55 &bull; Graduated Nov 2023</p>
-                        <p class="edu-activities">School Prefect &bull; House Captain &bull; Rowing Vice Captain &bull; Tennis Captain</p>
-                    </div>
-
+        <section class="tab-panel" id="panel-cv" role="tabpanel" aria-labelledby="tab-cv" tabindex="0" hidden>
+            <header class="page-intro cv-intro">
+                <div>
+                    <p class="eyebrow">Curriculum vitae</p>
+                    <h1>Education, skills,<br>and recognition.</h1>
+                    <p>A concise web CV based on my July 2026 résumé. For a role-specific PDF or additional detail, contact me directly.</p>
                 </div>
-            </div>
-        </section>
+                <div class="cv-actions">
+                    <button class="button button-solid" type="button" id="print-cv">Print / save PDF</button>
+                    <a class="button" href="mailto:kostakarathanasopoulos@gmail.com?subject=Resume%20request">Request résumé</a>
+                </div>
+            </header>
 
-        <!-- Awards -->
-        <section id="awards" class="section">
-            <div class="container">
-                <h2>Awards & Recognition</h2>
+            <div class="cv-layout">
+                <div class="cv-main">
+                    <section class="cv-section" aria-labelledby="education-heading">
+                        <p class="section-index">01 / Education</p>
+                        <h2 id="education-heading">Education</h2>
 
-                <div class="awards-columns">
-                    <div class="awards-col">
-                        <h3>Hackathons</h3>
-                        <ul class="awards-list">
-                            <li><strong>1st Place</strong> &mdash; Easy A x Flare x XRPL Hackathon ($7,500)</li>
-                            <li><strong>2nd Place</strong> &mdash; Harvard x Polkadot Hackathon ($3,000)</li>
-                            <li><strong>Honorable Mention</strong> &mdash; Algorand Hackathon</li>
+                        <article class="cv-entry">
+                            <div class="cv-entry-heading">
+                                <div>
+                                    <h3>Brown University</h3>
+                                    <p>B.S. Applied Mathematics–Computer Science</p>
+                                </div>
+                                <p>Providence, RI<br>Expected May 2028</p>
+                            </div>
+                            <p>GPA: 3.85 / 4.00 · Full-time, good standing</p>
+                            <p class="muted">Coursework: Systems Programming, Data Structures &amp; Algorithms, Statistical Inference, Machine Learning, Deep Learning, Linear Algebra, Multivariable Calculus, Computational Linear Algebra, and additional study of Harvard Stat 110 Probability.</p>
+                        </article>
+
+                        <article class="cv-entry">
+                            <div class="cv-entry-heading">
+                                <div>
+                                    <h3>The Southport School</h3>
+                                    <p>Queensland Certificate of Education</p>
+                                </div>
+                                <p>Gold Coast, Australia<br>Graduated Nov 2023</p>
+                            </div>
+                            <p>ATAR: 99.55</p>
+                        </article>
+                    </section>
+
+                    <section class="cv-section" aria-labelledby="recognition-heading">
+                        <p class="section-index">02 / Recognition</p>
+                        <h2 id="recognition-heading">Selected recognition</h2>
+                        <ul class="recognition-list">
+                            <li><span>1st Place · $7,500</span><strong>Easy A × Flare × XRPL Hackathon</strong><time datetime="2025">2025</time></li>
+                            <li><span>2nd Place · $3,000</span><strong>Harvard × Polkadot Hackathon</strong><time datetime="2025">2025</time></li>
+                            <li><span>2nd of 20 teams</span><strong>Goldman Sachs Emerging Leaders Series project</strong><time datetime="2026">2026</time></li>
+                            <li><span>Silver medal · U19 2×</span><strong>Australian Rowing Championships</strong><time datetime="2023">2023</time></li>
+                            <li><span>Champion · Year 11 single scull</span><strong>Queensland Schools Championship</strong><time datetime="2022">2022</time></li>
+                            <li><span>Men's Crew athlete</span><strong>Brown University · competed 2024–25</strong><time datetime="2025">2025</time></li>
                         </ul>
-                    </div>
-                    <div class="awards-col">
-                        <h3>Athletics</h3>
-                        <ul class="awards-list">
-                            <li>Australian Rowing National Championships &mdash; Double Scull</li>
-                            <li>Queensland State Champion &mdash; Single, Double, and Quad Scull</li>
-                            <li>Queensland State Medallist &mdash; Men's Eight</li>
-                        </ul>
-                    </div>
-                    <div class="awards-col">
-                        <h3>Certifications</h3>
-                        <ul class="awards-list">
-                            <li>Yale Financial Markets (Coursera)</li>
-                            <li>Stanford Machine Learning Specialization</li>
-                        </ul>
-                    </div>
+                    </section>
                 </div>
 
-            </div>
-        </section>
+                <aside class="cv-sidebar" aria-label="Skills and contact">
+                    <section>
+                        <p class="section-index">03 / Skills</p>
+                        <h2>Technical range</h2>
+                        <dl class="skill-groups">
+                            <div>
+                                <dt>Languages</dt>
+                                <dd>Python, TypeScript, JavaScript, C++, C, Java, SQL, Bash</dd>
+                            </div>
+                            <div>
+                                <dt>Frameworks</dt>
+                                <dd>React, Next.js, React Native, FastAPI, Firebase, Node.js</dd>
+                            </div>
+                            <div>
+                                <dt>Data &amp; ML</dt>
+                                <dd>PyTorch, TensorFlow, Pandas, NumPy, Matplotlib, scikit-learn, SQLite, OpenAI API</dd>
+                            </div>
+                            <div>
+                                <dt>Systems &amp; tools</dt>
+                                <dd>Linux, Git, GitHub, CI/CD, REST APIs, Playwright, Mixpanel, FFmpeg</dd>
+                            </div>
+                        </dl>
+                    </section>
 
-        <!-- Skills -->
-        <section class="section section-skills">
-            <div class="container">
-                <h2>Tech Stack</h2>
-                <p class="skills-line">
-                    Python &middot; JavaScript &middot; TypeScript &middot; C++ &middot; Java &middot; Bash &middot; SQL &middot;
-                    React &middot; Next.js &middot; FastAPI &middot; Node.js &middot; React Native &middot;
-                    Git &middot; RAG &middot; Agentic Patterns &middot; Cursor &middot; GitHub Copilot &middot; OpenAI API &middot;
-                    NumPy &middot; Pandas &middot; Linux &middot; Shopify+
-                </p>
+                    <section class="contact-block">
+                        <p class="section-index">04 / Contact</p>
+                        <h2>Links</h2>
+                        <ul>
+                            <li><a href="mailto:kostakarathanasopoulos@gmail.com"><span>Email</span><span class="contact-value">kostakarathanasopoulos@gmail.com</span></a></li>
+                            <li><a href="https://github.com/kostakarathana" target="_blank" rel="noreferrer"><span>GitHub</span><span class="contact-value">github.com/kostakarathana <span aria-hidden="true">↗</span></span></a></li>
+                            <li><a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span class="contact-value">in/kosta-karathanasopoulos <span aria-hidden="true">↗</span></span></a></li>
+                        </ul>
+                    </section>
+                </aside>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Kosta Karathanasopoulos</p>
+    <noscript>
+        <link rel="stylesheet" href="noscript.css">
+        <div class="noscript-note">JavaScript is disabled, so every portfolio section is shown in sequence.</div>
+    </noscript>
+
+    <footer class="site-footer">
+        <div class="shell footer-inner">
+            <p>© 2026 Kosta Karathanasopoulos</p>
+            <p>Software engineering · Machine learning · Quantitative systems</p>
+            <a href="#overview" data-select-tab="overview">Back to overview ↑</a>
         </div>
     </footer>
-
-    <!-- Chat Widget -->
-    <div id="chat-widget" class="chat-widget">
-        <button id="chat-toggle" class="chat-toggle" aria-label="Chat with AI assistant">
-            <svg class="chat-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-            <svg class="chat-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-        </button>
-        <div id="chat-panel" class="chat-panel">
-            <div class="chat-header">
-                <span class="chat-header-title">Ask about Kosta</span>
-            </div>
-            <div id="chat-messages" class="chat-messages">
-                <div class="chat-msg assistant">
-                    <p>Hi! I can answer questions about Kosta's experience, projects, skills, and background. What would you like to know?</p>
-                </div>
-            </div>
-            <form id="chat-form" class="chat-input-area">
-                <input id="chat-input" type="text" placeholder="Ask anything..." autocomplete="off">
-                <button type="submit" id="chat-send" aria-label="Send message">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                    </svg>
-                </button>
-            </form>
-        </div>
-    </div>
 
     <script src="script.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>

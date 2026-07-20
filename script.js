@@ -1,157 +1,186 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const nav = document.querySelector('.nav');
-    const toggle = document.querySelector('.nav-toggle');
-    const menu = document.querySelector('.nav-links');
-    const links = document.querySelectorAll('.nav-links a');
+(function () {
+    'use strict';
 
-    // Scroll shadow on nav
-    window.addEventListener('scroll', function () {
-        nav.classList.toggle('scrolled', window.scrollY > 10);
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+    var panels = Array.prototype.slice.call(document.querySelectorAll('[role="tabpanel"]'));
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var tabIds = tabs.map(function (tab) {
+        return tab.getAttribute('href').slice(1);
     });
 
-    // Mobile menu
-    toggle.addEventListener('click', function () {
-        toggle.classList.toggle('open');
-        menu.classList.toggle('open');
-    });
+    function validTab(id) {
+        return tabIds.indexOf(id) !== -1;
+    }
 
-    // Close menu on link click
-    links.forEach(function (link) {
-        link.addEventListener('click', function () {
-            toggle.classList.remove('open');
-            menu.classList.remove('open');
-        });
-    });
+    function activateTab(id, options) {
+        var settings = options || {};
+        var selectedId = validTab(id) ? id : 'overview';
 
-    // Close menu on outside click
-    document.addEventListener('click', function (e) {
-        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-            toggle.classList.remove('open');
-            menu.classList.remove('open');
-        }
-    });
+        tabs.forEach(function (tab) {
+            var active = tab.getAttribute('href') === '#' + selectedId;
+            tab.setAttribute('aria-selected', String(active));
+            tab.setAttribute('tabindex', active ? '0' : '-1');
 
-    // Active nav link on scroll
-    var sections = document.querySelectorAll('.section');
-
-    function updateActive() {
-        var scrollPos = window.scrollY + 120;
-        var current = '';
-
-        sections.forEach(function (section) {
-            if (section.offsetTop <= scrollPos) {
-                current = section.getAttribute('id');
+            if (active && settings.focus) {
+                tab.focus();
             }
         });
 
-        links.forEach(function (link) {
-            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        panels.forEach(function (panel) {
+            var active = panel.id === 'panel-' + selectedId;
+            panel.hidden = !active;
+            panel.classList.toggle('is-active', active);
+
+            if (active) {
+                panel.classList.remove('is-entering');
+                window.requestAnimationFrame(function () {
+                    panel.classList.add('is-entering');
+                });
+            }
+        });
+
+        if (settings.updateHistory !== false && window.location.hash !== '#' + selectedId) {
+            window.history.pushState({ tab: selectedId }, '', '#' + selectedId);
+        }
+
+        if (settings.scroll) {
+            window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        }
+    }
+
+    tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function (event) {
+            event.preventDefault();
+            activateTab(tab.getAttribute('href').slice(1), {
+                updateHistory: true,
+                scroll: true
+            });
+        });
+
+        tab.addEventListener('keydown', function (event) {
+            var targetIndex = index;
+
+            if (event.key === ' ' || event.key === 'Enter') {
+                event.preventDefault();
+                activateTab(tab.getAttribute('href').slice(1), {
+                    updateHistory: true,
+                    focus: true,
+                    scroll: false
+                });
+                return;
+            } else if (event.key === 'ArrowRight') {
+                targetIndex = (index + 1) % tabs.length;
+            } else if (event.key === 'ArrowLeft') {
+                targetIndex = (index - 1 + tabs.length) % tabs.length;
+            } else if (event.key === 'Home') {
+                targetIndex = 0;
+            } else if (event.key === 'End') {
+                targetIndex = tabs.length - 1;
+            } else {
+                return;
+            }
+
+            event.preventDefault();
+            activateTab(tabs[targetIndex].getAttribute('href').slice(1), {
+                updateHistory: true,
+                focus: true,
+                scroll: false
+            });
+        });
+    });
+
+    document.querySelectorAll('[data-select-tab]').forEach(function (control) {
+        control.addEventListener('click', function (event) {
+            var id = control.getAttribute('data-select-tab');
+
+            if (!validTab(id)) {
+                return;
+            }
+
+            event.preventDefault();
+            activateTab(id, {
+                updateHistory: true,
+                focus: true,
+                scroll: true
+            });
+        });
+    });
+
+    function handleLocationChange() {
+        var id = window.location.hash.slice(1);
+        var selected = tabs.find(function (tab) {
+            return tab.getAttribute('aria-selected') === 'true';
+        });
+        var selectedId = selected ? selected.getAttribute('href').slice(1) : '';
+
+        if (!id) {
+            if (selectedId !== 'overview') {
+                activateTab('overview', {
+                    updateHistory: false,
+                    scroll: false
+                });
+            }
+            return;
+        }
+
+        if (validTab(id) && id !== selectedId) {
+            activateTab(id, {
+                updateHistory: false,
+                scroll: false
+            });
+        } else if (!validTab(id) && !document.getElementById(id)) {
+            window.history.replaceState({ tab: selectedId || 'overview' }, '', '#' + (selectedId || 'overview'));
+        }
+    }
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+
+    var filterButtons = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
+    var projects = Array.prototype.slice.call(document.querySelectorAll('.project-row'));
+    var filterStatus = document.getElementById('filter-status');
+
+    filterButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var filter = button.getAttribute('data-filter');
+            var visibleCount = 0;
+
+            filterButtons.forEach(function (item) {
+                item.setAttribute('aria-pressed', String(item === button));
+            });
+
+            projects.forEach(function (project) {
+                var categories = project.getAttribute('data-category').split(' ');
+                var visible = filter === 'all' || categories.indexOf(filter) !== -1;
+                project.hidden = !visible;
+
+                if (visible) {
+                    visibleCount += 1;
+                }
+            });
+
+            if (filterStatus) {
+                filterStatus.textContent = 'Showing ' + visibleCount + (visibleCount === 1 ? ' project' : ' projects');
+            }
+        });
+    });
+
+    var printButton = document.getElementById('print-cv');
+
+    if (printButton) {
+        printButton.addEventListener('click', function () {
+            window.print();
         });
     }
 
-    window.addEventListener('scroll', updateActive);
-    updateActive();
+    var initialId = window.location.hash.slice(1);
 
-    // ===== Chat Widget =====
-    var chatWidget = document.getElementById('chat-widget');
-    var chatToggle = document.getElementById('chat-toggle');
-    var chatPanel = document.getElementById('chat-panel');
-    var chatForm = document.getElementById('chat-form');
-    var chatInput = document.getElementById('chat-input');
-    var chatMessages = document.getElementById('chat-messages');
-    var chatSend = document.getElementById('chat-send');
-    var sessionId = 'sess_' + Math.random().toString(36).slice(2);
-
-    // Open by default
-    chatWidget.classList.add('open');
-
-    chatToggle.addEventListener('click', function () {
-        chatWidget.classList.toggle('open');
-        if (chatWidget.classList.contains('open')) {
-            chatInput.focus();
-        }
-    });
-
-    chatForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var msg = chatInput.value.trim();
-        if (!msg) return;
-
-        appendMessage('user', msg);
-        chatInput.value = '';
-        chatSend.disabled = true;
-
-        var typing = showTyping();
-
-        fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: msg, sessionId: sessionId }),
-        })
-            .then(function (res) { return res.json(); })
-            .then(function (data) {
-                removeTyping(typing);
-                if (data.error) {
-                    appendMessage('assistant', data.error);
-                    if (data.remaining === 0) {
-                        chatInput.disabled = true;
-                        chatSend.disabled = true;
-                        chatInput.placeholder = 'Weekly limit reached';
-                    }
-                } else {
-                    appendMessage('assistant', data.reply);
-                    if (typeof data.remaining === 'number') {
-                        chatInput.placeholder = data.remaining + ' messages left this week';
-                    }
-                }
-            })
-            .catch(function () {
-                removeTyping(typing);
-                appendMessage('assistant', 'Sorry, I couldn\'t connect. Please try again later.');
-            })
-            .finally(function () {
-                chatSend.disabled = false;
-            });
-    });
-
-    function renderMarkdown(text) {
-        // Escape HTML first
-        var safe = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        // Bold: **text**
-        safe = safe.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-        // Italic: *text*
-        safe = safe.replace(/\*(.+?)\*/g, '<em>$1</em>');
-        // Inline code: `text`
-        safe = safe.replace(/`(.+?)`/g, '<code>$1</code>');
-        // Line breaks
-        safe = safe.replace(/\n/g, '<br>');
-        return safe;
+    if (validTab(initialId)) {
+        activateTab(initialId, {
+            updateHistory: false,
+            scroll: false
+        });
+    } else if (initialId && !document.getElementById(initialId)) {
+        window.history.replaceState({ tab: 'overview' }, '', '#overview');
     }
-
-    function appendMessage(role, text) {
-        var div = document.createElement('div');
-        div.className = 'chat-msg ' + role;
-        var p = document.createElement('p');
-        if (role === 'assistant') {
-            p.innerHTML = renderMarkdown(text);
-        } else {
-            p.textContent = text;
-        }
-        div.appendChild(p);
-        chatMessages.appendChild(div);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    function showTyping() {
-        var div = document.createElement('div');
-        div.className = 'chat-msg assistant';
-        div.innerHTML = '<div class="chat-typing"><span></span><span></span><span></span></div>';
-        chatMessages.appendChild(div);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        return div;
-    }
-
-    function removeTyping(el) {
-        if (el && el.parentNode) el.parentNode.removeChild(el);
-    }
-});
+}());

@@ -1,0 +1,13 @@
+.DS_Store
+.openai/
+dist/
+Education/
+Projects/
+project_photos/
+photos/.DS_Store
+photos/Hackathon_Prize.jpeg
+photos/hackathon2.jpeg
+photos/rowing.png
+resume.md
+scripts/
+sites/
