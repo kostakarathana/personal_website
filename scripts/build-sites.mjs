@@ -21,7 +21,7 @@ writeFileSync(join(client, 'index.html'), index);
     copyFileSync(join(root, file), join(client, file));
 });
 
-copyFileSync(join(root, 'photos', 'headshot.jpeg'), join(client, 'photos', 'headshot.jpeg'));
+copyFileSync(join(root, 'photos', 'headshot.png'), join(client, 'photos', 'headshot.png'));
 ['github.svg', 'linkedin.svg'].forEach((file) => {
     copyFileSync(join(root, 'icons', file), join(client, 'icons', file));
 });
