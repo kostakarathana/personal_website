@@ -9,6 +9,7 @@ const server = join(dist, 'server');
 
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(join(client, 'photos'), { recursive: true });
+mkdirSync(join(client, 'icons'), { recursive: true });
 mkdirSync(server, { recursive: true });
 
 const index = readFileSync(join(root, 'index.html'), 'utf8')
@@ -21,6 +22,9 @@ writeFileSync(join(client, 'index.html'), index);
 });
 
 copyFileSync(join(root, 'photos', 'headshot.jpeg'), join(client, 'photos', 'headshot.jpeg'));
+['github.svg', 'linkedin.svg'].forEach((file) => {
+    copyFileSync(join(root, 'icons', file), join(client, 'icons', file));
+});
 copyFileSync(join(root, 'sites', 'worker.js'), join(server, 'index.js'));
 
 console.log('Sites build ready in dist/');
