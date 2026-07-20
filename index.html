@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#050505">
+    <meta name="theme-color" content="#070909">
     <meta name="description" content="Kosta Karathanasopoulos is a software engineer and Applied Mathematics–Computer Science student at Brown University working across product systems, machine learning, and quantitative tools.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Kosta Karathanasopoulos — Software Engineer">
@@ -32,21 +32,23 @@
                 <span class="wordmark-name">Kosta Karathanasopoulos</span>
             </a>
 
-            <nav class="utility-nav" aria-label="External links">
-                <a href="https://github.com/kostakarathana" target="_blank" rel="noreferrer">GitHub<span aria-hidden="true"> ↗</span></a>
-                <a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" target="_blank" rel="noreferrer">LinkedIn<span aria-hidden="true"> ↗</span></a>
-                <a href="mailto:kostakarathanasopoulos@gmail.com">Email</a>
-            </nav>
-        </div>
+            <div class="header-navigation">
+                <div class="tab-strip">
+                    <nav class="tablist" role="tablist" aria-label="Portfolio sections">
+                        <a class="tab" id="tab-overview" href="#overview" role="tab" aria-controls="panel-overview" aria-selected="true" tabindex="0">Overview</a>
+                        <a class="tab" id="tab-research" href="#research" role="tab" aria-controls="panel-research" aria-selected="false" tabindex="-1">Research</a>
+                        <a class="tab" id="tab-engineering" href="#engineering" role="tab" aria-controls="panel-engineering" aria-selected="false" tabindex="-1">Engineering</a>
+                        <a class="tab" id="tab-experience" href="#experience" role="tab" aria-controls="panel-experience" aria-selected="false" tabindex="-1">Experience</a>
+                        <a class="tab" id="tab-cv" href="#cv" role="tab" aria-controls="panel-cv" aria-selected="false" tabindex="-1">CV</a>
+                    </nav>
+                </div>
 
-        <div class="tab-strip">
-            <nav class="shell tablist" role="tablist" aria-label="Portfolio sections">
-                <a class="tab" id="tab-overview" href="#overview" role="tab" aria-controls="panel-overview" aria-selected="true" tabindex="0">Overview</a>
-                <a class="tab" id="tab-research" href="#research" role="tab" aria-controls="panel-research" aria-selected="false" tabindex="-1">Research</a>
-                <a class="tab" id="tab-engineering" href="#engineering" role="tab" aria-controls="panel-engineering" aria-selected="false" tabindex="-1">Engineering</a>
-                <a class="tab" id="tab-experience" href="#experience" role="tab" aria-controls="panel-experience" aria-selected="false" tabindex="-1">Experience</a>
-                <a class="tab" id="tab-cv" href="#cv" role="tab" aria-controls="panel-cv" aria-selected="false" tabindex="-1">CV</a>
-            </nav>
+                <nav class="utility-nav" aria-label="External links">
+                    <a class="social-link" href="https://github.com/kostakarathana" target="_blank" rel="noreferrer" aria-label="GitHub profile"><img class="social-icon" src="icons/github.svg" alt="">GitHub</a>
+                    <a class="social-link" href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><img class="social-icon" src="icons/linkedin.svg" alt="">LinkedIn</a>
+                    <a href="mailto:kostakarathanasopoulos@gmail.com">Email</a>
+                </nav>
+            </div>
         </div>
     </header>
 
@@ -55,15 +57,14 @@
             <div class="hero">
                 <div class="hero-copy">
                     <h1>Kosta<br>Karathanasopoulos</h1>
-                    <p class="hero-lead">I build reliable product systems and research tools at the intersection of software engineering, machine learning, and quantitative modeling.</p>
-                    <p class="hero-context">Founding Engineer at Spike and an Applied Mathematics–Computer Science student at Brown University. Previously an undergraduate researcher in Brown's SWRL Lab.</p>
+                    <p class="hero-lead">I'm an Applied Mathematics–Computer Science student at Brown University. For the past three years, I've built software across consumer technology, machine learning, and finance.</p>
+                    <p class="hero-context">Founding Engineer at Spike. Previously an undergraduate researcher in Brown University's SWRL Lab.</p>
 
                     <div class="hero-actions" role="group" aria-label="Primary contact links">
                         <a class="button button-solid" href="mailto:kostakarathanasopoulos@gmail.com">Get in touch</a>
-                        <a class="button" href="https://github.com/kostakarathana" target="_blank" rel="noreferrer">View GitHub <span aria-hidden="true">↗</span></a>
+                        <a class="button button-icon" href="https://github.com/kostakarathana" target="_blank" rel="noreferrer"><img class="social-icon" src="icons/github.svg" alt="">View GitHub</a>
                     </div>
 
-                    <p class="availability"><span aria-hidden="true"></span>Seeking 2027 internships in software engineering and quantitative development, research, and trading.</p>
                 </div>
 
                 <figure class="portrait-frame">
@@ -75,7 +76,7 @@
             <section class="content-section" aria-labelledby="selected-heading">
                 <div class="section-heading">
                     <h2 id="selected-heading">Selected work</h2>
-                    <button class="text-button" type="button" data-select-tab="engineering">All projects <span aria-hidden="true">→</span></button>
+                    <button class="button button-accent section-cta" type="button" data-select-tab="engineering">All projects &amp; experience <span aria-hidden="true">→</span></button>
                 </div>
 
                 <div class="feature-list">
@@ -496,8 +497,8 @@
                         <h2>Contact</h2>
                         <ul>
                             <li><a href="mailto:kostakarathanasopoulos@gmail.com"><span>Email</span><span class="contact-value">kostakarathanasopoulos@gmail.com</span></a></li>
-                            <li><a href="https://github.com/kostakarathana" target="_blank" rel="noreferrer"><span>GitHub</span><span class="contact-value">github.com/kostakarathana <span aria-hidden="true">↗</span></span></a></li>
-                            <li><a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" target="_blank" rel="noreferrer"><span>LinkedIn</span><span class="contact-value">in/kosta-karathanasopoulos <span aria-hidden="true">↗</span></span></a></li>
+                            <li><a href="https://github.com/kostakarathana" target="_blank" rel="noreferrer"><span class="contact-label"><img class="social-icon" src="icons/github.svg" alt="">GitHub</span><span class="contact-value">github.com/kostakarathana</span></a></li>
+                            <li><a href="https://www.linkedin.com/in/kosta-karathanasopoulos-2b93b6226/" target="_blank" rel="noreferrer"><span class="contact-label"><img class="social-icon" src="icons/linkedin.svg" alt="">LinkedIn</span><span class="contact-value">in/kosta-karathanasopoulos</span></a></li>
                         </ul>
                     </section>
                 </aside>
